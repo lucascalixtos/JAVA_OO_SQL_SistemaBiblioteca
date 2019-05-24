@@ -36,20 +36,33 @@ private JMenuBar menuCreate() {
 	JMenuBar menuBar = new JMenuBar();
 	JMenu menuUsuarios = new JMenu("Usuários");
 	JMenu menuAcervo = new JMenu("Acervo");
+	JMenu menuEmprestimos = new JMenu("Empréstimos");
 	JMenu menuSair = new JMenu("Sair");
-	JMenuItem menuCadUsuarios = new JMenuItem("Cadastro de Usuários");
-	JMenuItem menuCatalogacao = new JMenuItem("Catalogação");
-	JMenuItem menuBusca = new JMenuItem("Busca");
+	JMenuItem menuCadUsuario = new JMenuItem("Cadastrar");
+	JMenuItem menuListUsuario = new JMenuItem("Listar");
 
-
-	menuUsuarios.add(menuCadUsuarios);
+	JMenuItem menuCatalogAcervo = new JMenuItem("Catalogar");
+	JMenuItem menuListAcervo = new JMenuItem("Listar");
 	
-	menuAcervo.add(menuCatalogacao);
-	menuAcervo.add(menuBusca);
+	JMenuItem menuNovoEmprestimo = new JMenuItem("Novo Empréstimo");
+	JMenuItem menuListEmprestimo = new JMenuItem("Listar");
+
+	JMenuItem menuBuscar = new JMenuItem("Buscar");
+
+	menuUsuarios.add(menuCadUsuario);
+	menuUsuarios.add(menuListUsuario);
+
+	menuAcervo.add(menuCatalogAcervo);
+	menuAcervo.add(menuListAcervo);
+	menuAcervo.add(menuBuscar);
+	
+	menuEmprestimos.add(menuNovoEmprestimo);
+	menuEmprestimos.add(menuListEmprestimo);
 
 	menuBar.add(menuUsuarios);
 	menuBar.add(menuAcervo);
+	menuBar.add(menuEmprestimos);
 
 	return (menuBar);
-}
+	}
 }
