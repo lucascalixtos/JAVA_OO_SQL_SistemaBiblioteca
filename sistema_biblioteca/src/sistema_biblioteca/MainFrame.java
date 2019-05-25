@@ -1,10 +1,14 @@
 package sistema_biblioteca;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import sistema_biblioteca.MainFrame;
 
@@ -54,7 +58,7 @@ private JMenuBar menuCreate() {
 
 	menuAcervo.add(menuCatalogAcervo);
 	menuAcervo.add(menuListAcervo);
-	menuAcervo.add(menuBuscar);
+	//menuAcervo.add(menuBuscar);
 	
 	menuEmprestimos.add(menuNovoEmprestimo);
 	menuEmprestimos.add(menuListEmprestimo);
@@ -62,6 +66,42 @@ private JMenuBar menuCreate() {
 	menuBar.add(menuUsuarios);
 	menuBar.add(menuAcervo);
 	menuBar.add(menuEmprestimos);
+	
+	menuCadUsuario.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			new CadUsuario();
+		}
+	});
+	
+	menuListUsuario.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			JOptionPane.showMessageDialog(null, "Funcionou");
+		}
+	});
+	
+	menuCatalogAcervo.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			JOptionPane.showMessageDialog(null, "Funcionou");
+		}
+	});
+	
+	menuListAcervo.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			JOptionPane.showMessageDialog(null, "Funcionou");
+		}
+	});
+	
+	menuNovoEmprestimo.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			JOptionPane.showMessageDialog(null, "Funcionou");
+		}
+	});
+	
+	menuListEmprestimo.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			JOptionPane.showMessageDialog(null, "Funcionou");
+		}
+	});
 
 	return (menuBar);
 	}
