@@ -38,12 +38,12 @@ public MainFrame getThis(){
 private JMenuBar menuCreate() {
 	
 	JMenuBar menuBar = new JMenuBar();
-	JMenu menuUsuarios = new JMenu("Usuários");
+	JMenu menuAssociados = new JMenu("Associados");
 	JMenu menuAcervo = new JMenu("Acervo");
 	JMenu menuEmprestimos = new JMenu("Empréstimos");
 	JMenu menuSair = new JMenu("Sair");
-	JMenuItem menuCadUsuario = new JMenuItem("Cadastrar");
-	JMenuItem menuListUsuario = new JMenuItem("Listar");
+	JMenuItem menuCadAssociado = new JMenuItem("Cadastrar");
+	JMenuItem menuListAssociado = new JMenuItem("Listar");
 
 	JMenuItem menuCatalogAcervo = new JMenuItem("Catalogar");
 	JMenuItem menuListAcervo = new JMenuItem("Listar");
@@ -53,8 +53,8 @@ private JMenuBar menuCreate() {
 
 	JMenuItem menuBuscar = new JMenuItem("Buscar");
 
-	menuUsuarios.add(menuCadUsuario);
-	menuUsuarios.add(menuListUsuario);
+	menuAssociados.add(menuCadAssociado);
+	menuAssociados.add(menuListAssociado);
 
 	menuAcervo.add(menuCatalogAcervo);
 	menuAcervo.add(menuListAcervo);
@@ -63,17 +63,17 @@ private JMenuBar menuCreate() {
 	menuEmprestimos.add(menuNovoEmprestimo);
 	menuEmprestimos.add(menuListEmprestimo);
 
-	menuBar.add(menuUsuarios);
+	menuBar.add(menuAssociados);
 	menuBar.add(menuAcervo);
 	menuBar.add(menuEmprestimos);
 	
-	menuCadUsuario.addActionListener (new ActionListener(){
+	menuCadAssociado.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			new CadUsuario();
+			new CadAssociado();
 		}
 	});
 	
-	menuListUsuario.addActionListener (new ActionListener(){
+	menuListAssociado.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			JOptionPane.showMessageDialog(null, "Funcionou");
 		}
