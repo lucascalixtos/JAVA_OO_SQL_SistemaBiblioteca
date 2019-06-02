@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
@@ -20,18 +21,17 @@ public class CadAssociado extends JFrame {
 	String[] tipoAssociado = {"Aluno", "Professor", "Servidor"};
 	JComboBox cmbTipoAssociado = new JComboBox(tipoAssociado);
 	
-	private JLabel lblNome;
-	private JLabel lblTelefone;
-	private JLabel lblProntuario;
-	private JLabel lblSenha;
-	private JLabel lblEndereco; 	
+	private JLabel lblNome = new JLabel("Nome");
+	private JLabel lblTelefone = new JLabel("Telefone");
+	private JLabel lblProntuario =  new JLabel("Prontuário");
+	private JLabel lblSenha =  new JLabel("Senha");
+	private JLabel lblEndereco =  new JLabel("Endereço"); 	
 	
-	private JTextField txtProntuario;
-	private JTextField txtNome;
-	private JTextField txtTelefone;
-	private JTextField txtSenha;
-	private JTextField txtEndereco;
-
+	private JTextField txtProntuario = new JTextField();
+	private JTextField txtNome = new JTextField();
+	private JTextField txtTelefone = new JTextField();
+	private JTextField txtSenha = new JTextField();
+	private JTextField txtEndereco = new JTextField();
 	
 	private JButton btnSalvar = new JButton ("Salvar");
 	private JButton btnCancelar = new JButton ("Cancelar");
@@ -43,29 +43,19 @@ public class CadAssociado extends JFrame {
 		this.setLayout(null);
 		this.setVisible(true);
 		
-		this.lblProntuario = new JLabel("Prontuário:");
 		this.lblProntuario.setBounds(5,5,100,30);
-		this.txtProntuario = new JTextField();
 		this.txtProntuario.setBounds(100,5,150,30);
 		
-		this.lblNome = new JLabel("Nome:");
 		this.lblNome.setBounds(5,40,100,30);
-		this.txtNome = new JTextField();
 		this.txtNome.setBounds(100,40,150,30);
 		
-		this.lblEndereco = new JLabel("Endereço:");
 		this.lblEndereco.setBounds(5,75,100,30);
-		this.txtEndereco = new JTextField();
 		this.txtEndereco.setBounds(100,75,150,30);
 		
-		this.lblTelefone = new JLabel("Telefone:");
 		this.lblTelefone.setBounds(5,110,100,30);
-		this.txtTelefone = new JTextField();
 		this.txtTelefone.setBounds(100,110,150,30);
 		
-		this.lblSenha = new JLabel("Senha:");
 		this.lblSenha.setBounds(5,145,100,30);
-		this.txtSenha = new JTextField();
 		this.txtSenha.setBounds(100,145,150,30);
 		
 		this.cmbTipoAssociado.setSelectedIndex(1);
@@ -77,11 +67,13 @@ public class CadAssociado extends JFrame {
 		});
 		
 		
-		this.btnSalvar = new JButton("Salvar");
 		this.btnSalvar.setBounds(50,215,100,30);
-		
-		this.btnCancelar = new JButton("Cancelar");
 		this.btnCancelar.setBounds(160,215,100,30);
+		this.btnCancelar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				dispose();
+			}
+		});
 		
 		this.add(lblProntuario);
 		this.add(txtProntuario);

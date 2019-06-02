@@ -1,0 +1,28 @@
+package sistema_biblioteca;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Livro extends CadAcervo{
+	
+	
+
+	public Livro(String Tipo) {
+		super(Tipo);
+		
+		JLabel lblISBN = new JLabel("ISBN");
+		JLabel lblEdicao = new JLabel("Edição");
+		JLabel lblEditora = new JLabel("Editora") ;
+		
+		JTextField txtISBN = new JTextField();
+		JTextField txtEdicao = new JTextField();
+		JTextField txtEditora = new JTextField();
+		
+		lblISBN.setBounds(5,5,100,30);
+		txtISBN.setBounds(100,5,150,30);
+		
+		add(lblISBN);
+		add(txtISBN);
+	}
+
+}

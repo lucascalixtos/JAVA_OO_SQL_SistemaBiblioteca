@@ -1,0 +1,12 @@
+package sistema_biblioteca;
+
+public class Livro extends CadAcervo{
+	
+	String Tipo = "Livro";
+	
+	public Livro(String Tipo) {
+		super(Tipo);
+		// TODO Auto-generated constructor stub
+	}
+
+}

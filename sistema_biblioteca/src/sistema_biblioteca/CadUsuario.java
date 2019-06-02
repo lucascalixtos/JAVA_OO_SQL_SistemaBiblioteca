@@ -37,7 +37,7 @@ public class CadUsuario extends JFrame {
 		this.txtSenha = new JTextField();
 		this.txtSenha.setBounds(100,40,150,30);
 		
-		this.btnSalvar = new JButton("Salvar");
+		//this.btnSalvar = new JButton("Salvar");
 		this.btnSalvar.setBounds(100,75,100,30);
 		
 		this.add(lblLogin);

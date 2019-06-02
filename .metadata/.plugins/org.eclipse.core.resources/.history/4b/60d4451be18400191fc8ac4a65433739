@@ -1,0 +1,14 @@
+package sistema_biblioteca;
+
+import javax.swing.JFrame;
+
+public class CadAcervo extends JFrame {
+	
+	public CadAcervo(String Tipo){
+		this.setTitle("Cadastro de " + Tipo);
+		this.setBounds(300, 300, 300, 280);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setLayout(null);
+		this.setVisible(true);
+	}
+}

@@ -81,7 +81,7 @@ private JMenuBar menuCreate() {
 	
 	menuCatalogAcervo.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			JOptionPane.showMessageDialog(null, "Funcionou");
+			new TipoCadAcervo();
 		}
 	});
 	

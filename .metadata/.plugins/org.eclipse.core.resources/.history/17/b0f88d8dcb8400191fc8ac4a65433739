@@ -1,0 +1,28 @@
+package sistema_biblioteca;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class TipoCadAcervo extends JFrame{
+	
+	private JLabel lblTipo;
+	
+	private JButton btnLivro = new JButton("Livro");
+	private JButton btnMidia = new JButton("Mídia Digital");
+	private JButton btnRevista = new JButton("Revista");
+	private JButton btnTCC = new JButton("TCC");
+	
+	public TipoCadAcervo() {
+		this.setTitle("Catalogação de Acervo");
+		this.setBounds(300, 300, 300, 200);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setLayout(null);
+		this.setVisible(true);
+		
+		this.lblTipo = new JLabel("Categoria: ");
+		this.lblTipo.setBounds(5,5,100,30);
+		
+		this.add(lblTipo);
+	}
+}
