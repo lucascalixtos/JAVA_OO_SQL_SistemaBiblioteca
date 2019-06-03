@@ -9,9 +9,9 @@ import java.sql.Statement;
 public class DBConnection {
 	
 	public void Conecta() throws SQLException, ClassNotFoundException{
-	String usuario = "ALUNO036";
-	String senha = "ALUNO036";
-	String url = "jdbc:sqlserver://bdalunos.ifspguarulhos.edu.br:1433;databaseName=ALUNO036" +
+	String usuario = "ALUNO035";
+	String senha = "ALUNO035";
+	String url = "jdbc:sqlserver://bdalunos.ifspguarulhos.edu.br:1433;databaseName=ALUNO035" +
 	                       ";user=" + usuario + ";password=" + senha + ";";
 	
 	Connection connection = null;
@@ -19,7 +19,7 @@ public class DBConnection {
 	String schema = connection.getSchema();
 	System.out.println("Successful connection - Schema: " + schema); 
 	
-	String selectSql = "SELECT * FROM USUARIOS";
+	String selectSql = "SELECT * FROM CURSO";
 	
 	try (Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(selectSql)) {

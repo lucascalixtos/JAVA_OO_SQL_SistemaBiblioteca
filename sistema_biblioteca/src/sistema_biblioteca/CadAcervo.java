@@ -1,5 +1,9 @@
 package sistema_biblioteca;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -22,9 +26,12 @@ public class CadAcervo extends JFrame {
 	private JTextField txtTombo = new JTextField();
 	private JTextField txtPatrimonio = new JTextField();
 	
+	private JButton btnSalvar = new JButton ("Salvar");
+	private JButton btnCancelar = new JButton ("Cancelar");
+	
 	public CadAcervo(String Tipo){
 		this.setTitle("Cadastro de " + Tipo);
-		this.setBounds(300, 300, 300, 500);
+		this.setBounds(300, 100, 300, 500);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(null);
 		this.setVisible(true);
@@ -36,13 +43,21 @@ public class CadAcervo extends JFrame {
 		this.lblAutor.setBounds(5,75,100,30);
 		this.txtAutor.setBounds(100,75,150,30);
 		this.lblPublicacao.setBounds(5,110,100,30);
-		this.txtPublicacao.setBounds(100,100,150,30);
-		this.lblDataEntrada.setBounds(5,135,100,30);
-		this.txtDataEntrada.setBounds(100,135,150,30);
-		this.lblTombo.setBounds(5,170,100,30);
-		this.txtTombo.setBounds(100,170,150,30);
-		this.lblPatrimonio.setBounds(5,205,100,30);
-		this.txtPatrimonio.setBounds(100,205,150,30);
+		this.txtPublicacao.setBounds(100,110,150,30);
+		this.lblDataEntrada.setBounds(5,145,100,30);
+		this.txtDataEntrada.setBounds(100,145,150,30);
+		this.lblTombo.setBounds(5,180,100,30);
+		this.txtTombo.setBounds(100,180,150,30);
+		this.lblPatrimonio.setBounds(5,215,100,30);
+		this.txtPatrimonio.setBounds(100,215,150,30);
+		
+		this.btnSalvar.setBounds(35,400,100,30);
+		this.btnCancelar.setBounds(145,400,100,30);
+		this.btnCancelar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				dispose();
+			}
+		});
 		
 		this.add(lblCodigo);
 		this.add(txtCodigo);
@@ -58,5 +73,7 @@ public class CadAcervo extends JFrame {
 		this.add(lblTombo);
 		this.add(txtPatrimonio);
 		this.add(lblPatrimonio);
+		this.add(btnSalvar);
+		this.add(btnCancelar);
 	}
 }

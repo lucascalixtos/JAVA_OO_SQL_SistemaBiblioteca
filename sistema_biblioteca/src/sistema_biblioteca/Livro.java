@@ -5,8 +5,6 @@ import javax.swing.JTextField;
 
 public class Livro extends CadAcervo{
 	
-	
-
 	public Livro(String Tipo) {
 		super(Tipo);
 		
@@ -18,19 +16,19 @@ public class Livro extends CadAcervo{
 		JTextField txtEdicao = new JTextField();
 		JTextField txtEditora = new JTextField();
 		
-		lblISBN.setBounds(5,240,100,30);
-		txtISBN.setBounds(50,240,150,30);
-		lblEdicao.setBounds(5,275,100,30);
-		txtEdicao.setBounds(50,275,150,30);
-		lblEditora.setBounds(5,310,100,30);
-		txtEditora.setBounds(50,310,150,30);
+		lblISBN.setBounds(5,250,100,30);
+		txtISBN.setBounds(100,250,150,30);
+		lblEdicao.setBounds(5,285,100,30);
+		txtEdicao.setBounds(100,285,150,30);
+		lblEditora.setBounds(5,320,100,30);
+		txtEditora.setBounds(100,320,150,30);
 		
 		add(lblISBN);
 		add(txtISBN);
-		/*add(lblEdicao);
+		add(lblEdicao);
 		add(txtEdicao);
 		add(lblEditora);
-		add(txtEditora);*/
+		add(txtEditora);
 	}
 
 }

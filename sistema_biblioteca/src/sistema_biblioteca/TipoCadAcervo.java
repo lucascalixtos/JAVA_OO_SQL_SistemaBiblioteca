@@ -39,7 +39,7 @@ public class TipoCadAcervo extends JFrame{
 		this.btnMidia.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				dispose();
-				new CadAcervo("Mídia Digital");
+				new MidiaDigital("Mídia Digital");
 			}
 		});
 		
@@ -47,7 +47,7 @@ public class TipoCadAcervo extends JFrame{
 		this.btnRevista.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				dispose();
-				new CadAcervo("Revista");
+				new Revista("Revista");
 			}
 		});
 		

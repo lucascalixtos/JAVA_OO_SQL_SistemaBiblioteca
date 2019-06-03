@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;MidiaDigital.java&apos; to &apos;sistema_biblioteca.MidiaDigital.java&apos;&#x0D;&#x0A;- Original project: &apos;sistema_biblioteca&apos;&#x0D;&#x0A;- Destination element: &apos;sistema_biblioteca.MidiaDigital.java&apos;&#x0D;&#x0A;- Original element: &apos;sistema_biblioteca.MidiaDigital.java&apos;" description="Copy compilation unit" destination="/src&lt;sistema_biblioteca{MidiaDigital.java" element1="/src&lt;sistema_biblioteca{MidiaDigital.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1559529251758" units="1" version="1.0"/>
+</session>

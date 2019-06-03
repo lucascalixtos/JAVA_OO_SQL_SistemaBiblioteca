@@ -49,6 +49,7 @@ private JMenuBar menuCreate() {
 	JMenuItem menuListAcervo = new JMenuItem("Listar");
 	
 	JMenuItem menuNovoEmprestimo = new JMenuItem("Novo Empréstimo");
+	JMenuItem menuNovaReserva = new JMenuItem("Nova Reserva");
 	JMenuItem menuListEmprestimo = new JMenuItem("Listar");
 
 	JMenuItem menuBuscar = new JMenuItem("Buscar");
@@ -61,6 +62,7 @@ private JMenuBar menuCreate() {
 	//menuAcervo.add(menuBuscar);
 	
 	menuEmprestimos.add(menuNovoEmprestimo);
+	menuEmprestimos.add(menuNovaReserva);
 	menuEmprestimos.add(menuListEmprestimo);
 
 	menuBar.add(menuAssociados);
@@ -92,6 +94,12 @@ private JMenuBar menuCreate() {
 	});
 	
 	menuNovoEmprestimo.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			JOptionPane.showMessageDialog(null, "Funcionou");
+		}
+	});
+	
+	menuNovaReserva.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			JOptionPane.showMessageDialog(null, "Funcionou");
 		}

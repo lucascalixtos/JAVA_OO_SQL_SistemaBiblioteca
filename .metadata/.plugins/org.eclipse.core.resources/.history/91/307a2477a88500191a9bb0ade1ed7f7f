@@ -1,0 +1,23 @@
+package sistema_biblioteca;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class Revista extends CadAcervo {
+
+	public Revista(String Tipo) {
+		super(Tipo);
+		// TODO Auto-generated constructor stub
+		
+		JLabel lblTipo = new JLabel("Tipo:");
+		
+		JTextField txtTipo = new JTextField();
+		
+		lblTipo.setBounds(5,250,100,30);
+		txtTipo.setBounds(100,250,150,30);
+
+		add(lblTipo);
+		add(txtTipo);
+	}
+
+}
