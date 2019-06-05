@@ -1,0 +1,80 @@
+package sistema_biblioteca;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.swing.JTable;
+
+public class ResultSetExtras{
+	
+	private ResultSet rs = null;
+	private int countRows= 0;
+	private int countCols= 0;
+	private JTable jTable= null;
+
+	public ResultSetExtras( ResultSet rs ) {
+		this.rs = rs;
+	
+			try {
+				this.countCols = rs.getMetaData().getColumnCount();
+				this.rs.next();
+				this.countRows = rs.getRow()+1;
+				this.rs.beforeFirst();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
+	
+	public String[] columnsLabelToArray() {
+		String[] colunas = new String[this.getCountCols()];
+		try {
+			for(int i=0; i<this.getCountCols(); i++){
+				colunas[i] = this.rs.getMetaData().getColumnName(i+1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return(colunas);
+	}
+	
+	public Object[][] dataToArray() {
+		int qtdLinhas = this.getCountRows();
+		int qtdColunas = this.getCountCols();
+		
+		String[][] dadosColunas = new String[qtdLinhas][qtdColunas];
+		int lin =0;
+		try {
+			while(rs.next()){
+				for(int col=0; col< this.getCountCols(); col++){
+					dadosColunas[lin][col] = rs.getString(col+1);
+				}
+				lin++;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return (dadosColunas);
+	}
+	
+	public int getCountRows() {
+		return countRows;
+	}
+
+	public void setCountRows(int countRows) {
+		this.countRows = countRows;
+	}
+
+	public int getCountCols() {
+		return countCols;
+	}
+
+	public void setCountCols(int countCols) {
+		this.countCols = countCols;
+	}
+
+	public JTable getjTable() {
+		this.jTable =  new JTable(this.dataToArray(), this.columnsLabelToArray());
+		return jTable;
+	}
+}
