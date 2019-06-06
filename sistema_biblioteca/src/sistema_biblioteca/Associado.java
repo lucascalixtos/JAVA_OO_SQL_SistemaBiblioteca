@@ -12,7 +12,7 @@ public class Associado {
 	private String Tipo;
 	
 	private String tableName = "ASSOCIADO";
-	private String fields	 = "Prontuario";
+	private String fields	 = "Prontuario, Nome, Endereco, Telefone, Tipo";
 	private String keyField  = "Prontuario";
 	
 	private DBQuery dbQuery = null;
@@ -47,12 +47,7 @@ public class Associado {
 	}
 	
 	public void save() {
-		if (this.getProntuario() == "0"){
 			this.dbQuery.insert(this.toArray());
-		}else{
-			this.dbQuery.update(this.toArray());
-		}
-
 	}
 	
 	/*public boolean checkNome(String user, String Endereco) {

@@ -18,8 +18,8 @@ public class ResultSetExtras{
 	
 			try {
 				this.countCols = rs.getMetaData().getColumnCount();
-				this.rs.next();
-				this.countRows = rs.getRow()+1;
+				this.rs.last();
+				this.countRows = rs.getRow();
 				this.rs.beforeFirst();
 			} catch (SQLException e) {
 				e.printStackTrace();

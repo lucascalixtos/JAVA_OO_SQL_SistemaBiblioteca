@@ -20,7 +20,8 @@ public class DBConnection {
 		// retirar para colocar em produção
 		try {
 			Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-			this.statement = ( DriverManager.getConnection(url).createStatement()); 
+			this.statement = ( DriverManager.getConnection(url).createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+				    ResultSet.CONCUR_READ_ONLY)); 
 			if (statement != null)
 				System.out.println("Banco de dados Conectado!");
 			else

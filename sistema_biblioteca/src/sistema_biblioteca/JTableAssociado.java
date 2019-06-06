@@ -110,11 +110,11 @@ public class JTableAssociado extends JFrame{
 				String idUsuario = (String) jTable.getValueAt(linha, 0);
 				//new EditUsuarioInd(idUsuario, linha);
 			}
-		});
+		});  
 		
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//new CadUsuarioInd();
+				new CadAssociado();
 			}
 		});
 	}
@@ -126,7 +126,12 @@ public class JTableAssociado extends JFrame{
 	private static JTable montarJtable(String where) {
 		JTable tmpTable = null;
 		ResultSet rs = new Associado().select(where);
-		System.out.print(rs.toString());
+		try {
+			System.out.print(rs.next());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ResultSetExtras rsExtras = new ResultSetExtras(rs);
 		tmpTable = rsExtras.getjTable();
 		return(tmpTable);
