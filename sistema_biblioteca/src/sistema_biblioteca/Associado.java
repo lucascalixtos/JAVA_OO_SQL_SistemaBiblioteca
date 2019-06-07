@@ -12,10 +12,11 @@ public class Associado {
 	private String Tipo;
 	
 	private String tableName = "ASSOCIADO";
-	private String fields	 = "Prontuario, Nome, Endereco, Telefone, Tipo";
+	private String fields	 = "Prontuario, Nome, Endereco, Telefone, Tipo, Prontuario";
 	private String keyField  = "Prontuario";
 	
 	private DBQuery dbQuery = null;
+	private String ProntuarioAntigo;
 	
 	public Associado() {
 		this.dbQuery = new DBQuery(this.tableName, this.fields, this.keyField);
@@ -59,6 +60,9 @@ public class Associado {
 		}
 	}*/
 	
+	public void update(){
+		this.dbQuery.update(this.toArray());
+	}
 	
 	public void delete() {
 		this.dbQuery.delete(this.getProntuario());
@@ -71,6 +75,15 @@ public class Associado {
 	public void setProntuario(String Prontuario) {
 		this.Prontuario = Prontuario;
 	}
+	
+	public void setProntuarioAntigo(String ProntuarioAntigo){
+		this.ProntuarioAntigo = ProntuarioAntigo;
+	}
+	
+	public String getProntuarioAntigo(){
+		return ProntuarioAntigo;
+	}
+	
 	public String getNome() {
 		return Nome;
 	}

@@ -17,7 +17,7 @@ public class ResultSetExtras{
 		this.rs = rs;
 	
 			try {
-				this.countCols = rs.getMetaData().getColumnCount();
+				this.countCols = rs.getMetaData().getColumnCount()-1;
 				this.rs.last();
 				this.countRows = rs.getRow();
 				this.rs.beforeFirst();

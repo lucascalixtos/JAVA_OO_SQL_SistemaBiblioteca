@@ -107,8 +107,8 @@ public class JTableAssociado extends JFrame{
 				int linha = jTable.getSelectedRow();
 				
 				//JOptionPane.showMessageDialog(null, jTable.getValueAt(linha, 0));
-				String idUsuario = (String) jTable.getValueAt(linha, 0);
-				//new EditUsuarioInd(idUsuario, linha);
+				String Prontuario = (String) jTable.getValueAt(linha, 0);
+				new EditAssociado(Prontuario, linha);
 			}
 		});  
 		
