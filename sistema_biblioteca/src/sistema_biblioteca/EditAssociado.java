@@ -22,12 +22,10 @@ public class EditAssociado  extends JFrame{
 	
 	private JLabel lblNome = new JLabel("Nome"); 
 	private JLabel lblTelefone = new JLabel("Telefone");
-	private JLabel lblProntuario =  new JLabel("Prontuário");
 	private JLabel lblSenha =  new JLabel("Senha");
 	private JLabel lblEndereco =  new JLabel("Endereço");
 	private JLabel lblTipo = new JLabel("Tipo");
 	
-	private JTextField txtProntuario;
 	private JTextField txtNome;
 	private JTextField txtTelefone;
 	private JTextField txtSenha;
@@ -43,10 +41,6 @@ public class EditAssociado  extends JFrame{
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(null);
 		this.setVisible(true);
-		
-		this.lblProntuario.setBounds(5,5,100,30);
-		this.txtProntuario = new JTextField((String) JTableAssociado.jTable.getValueAt(linha, 0));
-		this.txtProntuario.setBounds(100,5,150,30);
 		
 		this.lblNome.setBounds(5,40,100,30);
 		this.txtNome = new JTextField((String) JTableAssociado.jTable.getValueAt(linha, 1));
@@ -74,12 +68,12 @@ public class EditAssociado  extends JFrame{
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Associado cadastro = new Associado();
-				cadastro.setProntuario(txtProntuario.getText());
+				cadastro.setProntuario((String) JTableAssociado.jTable.getValueAt(linha, 0));
 				cadastro.setNome(txtNome.getText());
 				cadastro.setEndereco(txtEndereco.getText());
 				cadastro.setTelefone(txtTelefone.getText());
 				cadastro.setTipo(comboTipo);
-				cadastro.save();
+				cadastro.update();
 				dispose();
 				JTableAssociado.reloadJTable(JTableAssociado.jPanelTabela);
 
@@ -93,8 +87,6 @@ public class EditAssociado  extends JFrame{
 			}
 		});
 		
-		this.add(lblProntuario);
-		this.add(txtProntuario);
 		this.add(lblNome);
 		this.add(txtNome);
 		this.add(lblEndereco);

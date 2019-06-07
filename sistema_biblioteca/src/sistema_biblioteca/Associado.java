@@ -12,7 +12,7 @@ public class Associado {
 	private String Tipo;
 	
 	private String tableName = "ASSOCIADO";
-	private String fields	 = "Prontuario, Nome, Endereco, Telefone, Tipo, Prontuario";
+	private String fields	 = "Prontuario, Nome, Endereco, Telefone, Tipo";
 	private String keyField  = "Prontuario";
 	
 	private DBQuery dbQuery = null;
@@ -42,7 +42,7 @@ public class Associado {
 					this.getNome(),
 					this.getEndereco(),
 					this.getTelefone(),
-					this.getTipo()
+					this.getTipo(),
 			}
 		);
 	}
