@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class CadAcervo extends JFrame {
+public class EditAcervo extends JFrame {
 	
 	private JLabel lblCodigo = new JLabel("Código:");
 	private JLabel lblTitulo = new JLabel("Título:");
@@ -29,8 +29,8 @@ public class CadAcervo extends JFrame {
 	private JButton btnSalvar = new JButton ("Salvar");
 	private JButton btnCancelar = new JButton ("Cancelar");
 	
-	public CadAcervo(String Tipo){
-		this.setTitle("Cadastro de " + Tipo);
+	public EditAcervo(String Tipo, String Codigo, int linha){
+		this.setTitle("Edição de " + Tipo);
 		this.setBounds(300, 100, 300, 500);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(null);
@@ -52,22 +52,6 @@ public class CadAcervo extends JFrame {
 		this.txtPatrimonio.setBounds(100,215,150,30);
 		
 		this.btnSalvar.setBounds(35,400,100,30);
-		this.btnSalvar.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				Acervo cadastro = new Acervo();
-				cadastro.setCodigo_Acervo(txtCodigo.getText());
-				cadastro.setTitulo(txtTitulo.getText());
-				cadastro.setAutor(txtAutor.getText());
-				cadastro.setPublicacao(txtPublicacao.getText());
-				cadastro.setData_entrada(txtDataEntrada.getText());
-				cadastro.setTombo(txtTombo.getText());
-				cadastro.setPatrimonio(txtPatrimonio.getText());
-				cadastro.setTipo(Tipo);
-				cadastro.save();
-				dispose();
-			}
-		});
-		
 		this.btnCancelar.setBounds(145,400,100,30);
 		this.btnCancelar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
