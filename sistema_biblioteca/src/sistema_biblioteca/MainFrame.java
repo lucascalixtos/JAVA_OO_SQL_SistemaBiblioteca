@@ -50,6 +50,7 @@ private JMenuBar menuCreate() {
 	
 	JMenuItem menuNovoEmprestimo = new JMenuItem("Novo Empréstimo");
 	JMenuItem menuNovaReserva = new JMenuItem("Nova Reserva");
+	JMenuItem menuDevolucao = new JMenuItem("Devolução");
 	JMenuItem menuListEmprestimo = new JMenuItem("Listar");
 
 	JMenuItem menuBuscar = new JMenuItem("Buscar");
@@ -63,6 +64,7 @@ private JMenuBar menuCreate() {
 	
 	menuEmprestimos.add(menuNovoEmprestimo);
 	menuEmprestimos.add(menuNovaReserva);
+	menuEmprestimos.add(menuDevolucao);
 	menuEmprestimos.add(menuListEmprestimo);
 
 	menuBar.add(menuAssociados);
@@ -100,7 +102,7 @@ private JMenuBar menuCreate() {
 		}
 	});
 	
-	menuNovaReserva.addActionListener (new ActionListener(){
+	menuDevolucao.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			JOptionPane.showMessageDialog(null, "Funcionou");
 		}

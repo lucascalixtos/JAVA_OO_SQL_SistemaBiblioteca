@@ -84,10 +84,7 @@ public class JTableAssociado extends JFrame{
 					jTable = montarJtable();
 				}else{
 					String where = jTextPesquisa.getText().replace("*", "%");
-					
-					
-					
-					jTable = montarJtable( "login like '"+where+"' OR email like '"+where+"'");	
+					jTable = montarJtable( "Nome like '"+where+"' OR Prontuario like '"+where+"'");	
 				}
 				
 				scrollpane = new JScrollPane(jTable);

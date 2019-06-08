@@ -87,7 +87,8 @@ public class JTableAcervo extends JFrame{
 					
 					
 					
-					jTable = montarJtable( "login like '"+where+"' OR email like '"+where+"'");	
+					jTable = montarJtable( "Titulo like '"+where+"' OR Autor like '"+where+
+											"'OR Codigo_Acervo like '"+where+"'");	
 				}
 				
 				scrollpane = new JScrollPane(jTable);
