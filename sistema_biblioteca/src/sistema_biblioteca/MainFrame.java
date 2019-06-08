@@ -98,7 +98,7 @@ private JMenuBar menuCreate() {
 	
 	menuNovoEmprestimo.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			JOptionPane.showMessageDialog(null, "Funcionou");
+			new Emprestimo();
 		}
 	});
 	
