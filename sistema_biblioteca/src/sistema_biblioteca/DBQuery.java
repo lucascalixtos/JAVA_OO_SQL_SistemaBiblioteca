@@ -24,6 +24,7 @@ public class DBQuery {
 		this.setKeyField(keyField);
 	}
 	
+	
 	public ResultSet select(String where) {
 		if (this.tableName.isEmpty() || 
 			this.fields.isEmpty()){

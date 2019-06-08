@@ -17,8 +17,8 @@ public class Acervo {
 
 	
 	private String tableName = "ACERVO";
-	private String fields	 = "Codigo_Acervo, Data_entrada, Publicacao, "
-							+ "Autor, Tipo, Tombo, Patrimonio, Titulo";
+	private String fields	 = "Codigo_Acervo, Titulo, Autor, Publicacao,"
+							+ "Tipo, Tombo, Patrimonio, Data_entrada";
 	private String keyField  = "Codigo_Acervo";
 	
 	private DBQuery dbQuery = null;
@@ -49,15 +49,13 @@ public class Acervo {
 		return(
 			new String[]{
 					this.getCodigo_Acervo(),
-					this.getData_entrada(),
-					this.getPublicacao(),
+					this.getTitulo(),
 					this.getAutor(),
+					this.getPublicacao(),
 					this.getTipo(),
 					this.getTombo(),
 					this.getPatrimonio(),
-					this.getTitulo()
-
-
+					this.getData_entrada()
 			}
 		);
 	}
