@@ -109,6 +109,10 @@ public class JTableAcervo extends JFrame{
 				String LivroMin = "livro";
 				String RevistaMai = "Revista";
 				String RevistaMin = "revista";
+				String MidiaMin = "mídia digital";
+				String MidiaMai = "Mídia Digital";
+				String TCCMai = "TCC";
+				String TCCMin = "tcc";
 
 				int linha = jTable.getSelectedRow();
 				
@@ -122,14 +126,13 @@ public class JTableAcervo extends JFrame{
 					new EditLivro(Tipo, Acervo, linha);
 				}else if(Tipo.equals(RevistaMin) || Tipo.equals(RevistaMai)) {
 					new EditRevista(Tipo, Acervo, linha);
-				}/*else if(Tipo.equals(MidiaMin) || Tipo.equals(MidiaMai)) {
+				}else if(Tipo.equals(MidiaMin) || Tipo.equals(MidiaMai)) {
 					new EditMidiaDigital(Tipo, Acervo, linha);
 				}else if(Tipo.equals(TCCMin) || Tipo.equals(TCCMai)) {
-					new EditAcervo(Tipo, Acervo, linha);*/
+					new EditAcervo(Tipo, Acervo, linha);
 				}
 				
-			
-			
+			}
 		});  
 		
 		btnInserir.addActionListener(new ActionListener() {

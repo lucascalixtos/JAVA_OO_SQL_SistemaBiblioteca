@@ -6,16 +6,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class EditLivro extends EditAcervo{
+public class CadLivro extends CadAcervo{
 	
-	public EditLivro(String Tipo, String Acervo, int linha) {
-		super(Tipo, Acervo, linha);
+	protected static Object txtISBN;
+
+	public CadLivro(String Tipo) {
+		super(Tipo);
 		
 		JLabel lblISBN = new JLabel("ISBN:");
 		JLabel lblEdicao = new JLabel("Edição:");
-		JLabel lblEditora = new JLabel("Editora:");
+		JLabel lblEditora = new JLabel("Editora:") ;
 		
-		JTextField txtISBN = new JTextField(); 
+		JTextField txtISBN = new JTextField();
 		JTextField txtEdicao = new JTextField();
 		JTextField txtEditora = new JTextField();
 		
@@ -36,7 +38,7 @@ public class EditLivro extends EditAcervo{
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Acervo cadastro = new Acervo();
-				cadastro.setCodigo_Acervo((String) JTableAcervo.jTable.getValueAt(linha, 0));
+				cadastro.setCodigo_Acervo(txtCodigo.getText());
 				cadastro.setTitulo(txtTitulo.getText());
 				cadastro.setAutor(txtAutor.getText());
 				cadastro.setPublicacao(txtPublicacao.getText());
@@ -49,7 +51,7 @@ public class EditLivro extends EditAcervo{
 				livro.setISBN(txtISBN.getText());
 				livro.setEdicao(txtEdicao.getText());
 				livro.setEditora(txtEditora.getText());
-				livro.setFk_Acervo_Codigo_Acervo((String) JTableAcervo.jTable.getValueAt(linha, 0));
+				livro.setFk_Acervo_Codigo_Acervo(txtCodigo.getText());
 				
 				cadastro.save();
 				livro.save();

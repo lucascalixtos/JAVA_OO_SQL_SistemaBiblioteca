@@ -17,14 +17,15 @@ public class EditAcervo extends JFrame {
 	private JLabel lblTombo = new JLabel("Tombo:");
 	private JLabel lblPatrimonio = new JLabel("Patrimônio:");
 	
-	private JTextField txtTitulo;
-	private JTextField txtAutor;
-	private JTextField txtPublicacao;
-	private JTextField txtDataEntrada;
-	private JTextField txtTombo;
-	private JTextField txtPatrimonio;
+	JTextField txtTitulo;
+	JTextField txtAutor;
+	JTextField txtPublicacao;
+	JTextField txtDataEntrada;
+	JTextField txtTombo;
+	JTextField txtPatrimonio;
 	
-	private JButton btnSalvar = new JButton ("Salvar");
+	
+	protected JButton btnSalvar = new JButton ("Salvar");
 	private JButton btnCancelar = new JButton ("Cancelar");
 	
 	public EditAcervo(String Tipo, String Codigo, int linha){
@@ -57,7 +58,7 @@ public class EditAcervo extends JFrame {
 		this.lblPatrimonio.setBounds(5,215,100,30);
 		this.txtPatrimonio = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 6));
 		this.txtPatrimonio.setBounds(100,215,150,30);
-		
+				
 		this.btnSalvar.setBounds(35,400,100,30);
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){

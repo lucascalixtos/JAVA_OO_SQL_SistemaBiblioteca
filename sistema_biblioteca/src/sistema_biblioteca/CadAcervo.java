@@ -18,15 +18,15 @@ public class CadAcervo extends JFrame {
 	private JLabel lblTombo = new JLabel("Tombo:");
 	private JLabel lblPatrimonio = new JLabel("Patrimônio:");
 	
-	private JTextField txtCodigo = new JTextField();
-	private JTextField txtTitulo = new JTextField();
-	private JTextField txtAutor = new JTextField();
-	private JTextField txtPublicacao = new JTextField();
-	private JTextField txtDataEntrada = new JTextField();
-	private JTextField txtTombo = new JTextField();
-	private JTextField txtPatrimonio = new JTextField();
+	JTextField txtCodigo = new JTextField();
+	JTextField txtTitulo = new JTextField();
+	JTextField txtAutor = new JTextField();
+	JTextField txtPublicacao = new JTextField();
+    JTextField txtDataEntrada = new JTextField();
+    JTextField txtTombo = new JTextField();
+    JTextField txtPatrimonio = new JTextField();
 	
-	private JButton btnSalvar = new JButton ("Salvar");
+	protected JButton btnSalvar = new JButton ("Salvar");
 	private JButton btnCancelar = new JButton ("Cancelar");
 	
 	public CadAcervo(String Tipo){
@@ -52,21 +52,7 @@ public class CadAcervo extends JFrame {
 		this.txtPatrimonio.setBounds(100,215,150,30);
 		
 		this.btnSalvar.setBounds(35,400,100,30);
-		this.btnSalvar.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				Acervo cadastro = new Acervo();
-				cadastro.setCodigo_Acervo(txtCodigo.getText());
-				cadastro.setTitulo(txtTitulo.getText());
-				cadastro.setAutor(txtAutor.getText());
-				cadastro.setPublicacao(txtPublicacao.getText());
-				cadastro.setData_entrada(txtDataEntrada.getText());
-				cadastro.setTombo(txtTombo.getText());
-				cadastro.setPatrimonio(txtPatrimonio.getText());
-				cadastro.setTipo(Tipo);
-				cadastro.save();
-				dispose();
-			}
-		});
+		
 		
 		this.btnCancelar.setBounds(145,400,100,30);
 		this.btnCancelar.addActionListener(new ActionListener(){
