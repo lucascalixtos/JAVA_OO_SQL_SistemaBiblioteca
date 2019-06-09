@@ -2,6 +2,8 @@ package sistema_biblioteca;
 
   import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.*;
 //import javax.swing.JFrame;
@@ -54,6 +56,19 @@ public class Emprestimo extends JFrame {
 		
 		this.btnPesquisar1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
+				String where = "Titulo = '" + txtTitulo.getText().replace("*", "%") + "'";
+				System.out.println("\n"+where);
+				ResultSet rs = new Acervo().select(where);
+				try {
+					while(rs.next()){
+					System.out.println(rs.getString(1) + rs.getString(2));
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+
 				dispose();
 			}
 		});

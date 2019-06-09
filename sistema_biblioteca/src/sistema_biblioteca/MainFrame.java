@@ -19,9 +19,9 @@ public class MainFrame extends JFrame {
 public MainFrame() {
 		
 		this.setTitle("Gerenciamento de Biblioteca");
-		this.setBounds(0, 0, 500, 500);
+		this.setBounds(400, 100, 500, 500);
 		this.setLayout(null);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setJMenuBar(this.menuCreate());
 		
