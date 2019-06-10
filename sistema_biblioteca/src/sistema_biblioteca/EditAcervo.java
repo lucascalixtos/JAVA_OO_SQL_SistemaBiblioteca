@@ -23,43 +23,45 @@ public class EditAcervo extends JFrame {
 	JTextField txtDataEntrada;
 	JTextField txtTombo;
 	JTextField txtPatrimonio;
-	
-	
+		
 	protected JButton btnSalvar = new JButton ("Salvar");
+	protected JButton btnExemplar = new JButton ("Cadastrar Exemplar");
 	private JButton btnCancelar = new JButton ("Cancelar");
 	
 	public EditAcervo(String Tipo, String Codigo, int linha){
+		String CodigoAcervo = Codigo;
+		
 		this.setTitle("Edição de " + Tipo);
-		this.setBounds(300, 100, 300, 500);
+		this.setBounds(300, 100, 500, 500);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(null);
 		this.setVisible(true);
 		
 		this.lblTitulo.setBounds(5,40,100,30);
 		this.txtTitulo = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 1));
-		this.txtTitulo.setBounds(100,40,150,30);
+		this.txtTitulo.setBounds(100,40,350,30);
 		
 		this.lblAutor.setBounds(5,75,100,30);
 		this.txtAutor = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 2));
-		this.txtAutor.setBounds(100,75,150,30);
+		this.txtAutor.setBounds(100,75,350,30);
 		
 		this.lblPublicacao.setBounds(5,110,100,30);
 		this.txtPublicacao = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 3));
-		this.txtPublicacao.setBounds(100,110,150,30);
+		this.txtPublicacao.setBounds(100,110,350,30);
 		
 		this.lblDataEntrada.setBounds(5,145,100,30);
 		this.txtDataEntrada = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 7));
-		this.txtDataEntrada.setBounds(100,145,150,30);
+		this.txtDataEntrada.setBounds(100,145,350,30);
 		
 		this.lblTombo.setBounds(5,180,100,30);
 		this.txtTombo = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 5));
-		this.txtTombo.setBounds(100,180,150,30);
+		this.txtTombo.setBounds(100,180,350,30);
 		
 		this.lblPatrimonio.setBounds(5,215,100,30);
 		this.txtPatrimonio = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 6));
-		this.txtPatrimonio.setBounds(100,215,150,30);
+		this.txtPatrimonio.setBounds(100,215,350,30);
 				
-		this.btnSalvar.setBounds(35,400,100,30);
+		this.btnSalvar.setBounds(20,400,100,30);
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Acervo cadastro = new Acervo();
@@ -77,7 +79,15 @@ public class EditAcervo extends JFrame {
 			}
 		});
 		
-		this.btnCancelar.setBounds(145,400,100,30);
+		this.btnExemplar.setBounds(125,400,200,30);
+		this.btnExemplar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				new CadExemplar(CodigoAcervo);
+				dispose();
+			}
+		});
+		
+		this.btnCancelar.setBounds(330,400,100,30);
 		this.btnCancelar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				dispose();
@@ -98,6 +108,7 @@ public class EditAcervo extends JFrame {
 		this.add(txtPatrimonio);
 		this.add(lblPatrimonio);
 		this.add(btnSalvar);
+		this.add(btnExemplar);
 		this.add(btnCancelar);
 	}
 }

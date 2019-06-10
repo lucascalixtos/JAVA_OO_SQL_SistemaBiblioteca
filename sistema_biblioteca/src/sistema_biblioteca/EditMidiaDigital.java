@@ -17,7 +17,7 @@ public class EditMidiaDigital extends EditAcervo {
 		JTextField txtTipo = new JTextField();
 		
 		lblTipo.setBounds(5,250,100,30);
-		txtTipo.setBounds(100,250,150,30);
+		txtTipo.setBounds(100,250,350,30);
 
 		add(lblTipo);
 		add(txtTipo);

@@ -66,7 +66,19 @@ public class EmprestimoAcervo extends JFrame {
 		this.btnConfirmar.setBounds(35,400,100,30);
 		this.btnConfirmar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				
+				Exemplar exemplar = new Exemplar();
+				ResultSet rs = new Exemplar().select("fkAcervo_Codigo_Acervo = " + Array[0]);
+				int Quantidade = 0;
+				try {
+					while(rs.next()){
+						System.out.println("Quantidade: " + rs.getInt(2));
+						Quantidade = rs.getInt(2) - 1;
+						System.out.println("Quantidade: " + Quantidade);
+					}
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				dispose();
 			}
 		});

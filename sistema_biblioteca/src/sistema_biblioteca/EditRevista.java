@@ -17,7 +17,7 @@ public class EditRevista extends EditAcervo {
 		JTextField txtEdicao = new JTextField();
 		
 		lblEdicao.setBounds(5,250,100,30);
-		txtEdicao.setBounds(100,250,150,30);
+		txtEdicao.setBounds(100,250,350,30);
 
 		add(lblEdicao);
 		add(txtEdicao);

@@ -20,11 +20,11 @@ public class EditLivro extends EditAcervo{
 		JTextField txtEditora = new JTextField();
 		
 		lblISBN.setBounds(5,250,100,30);
-		txtISBN.setBounds(100,250,150,30);
+		txtISBN.setBounds(100,250,350,30);
 		lblEdicao.setBounds(5,285,100,30);
-		txtEdicao.setBounds(100,285,150,30);
+		txtEdicao.setBounds(100,285,350,30);
 		lblEditora.setBounds(5,320,100,30);
-		txtEditora.setBounds(100,320,150,30);
+		txtEditora.setBounds(100,320,350,30);
 		
 		add(lblISBN);
 		add(txtISBN);
