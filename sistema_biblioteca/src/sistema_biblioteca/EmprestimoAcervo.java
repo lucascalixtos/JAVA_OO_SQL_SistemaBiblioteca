@@ -68,6 +68,24 @@ public class EmprestimoAcervo extends JFrame {
 			public void actionPerformed(ActionEvent e){
 				Exemplar exemplar = new Exemplar();
 				ResultSet rs = new Exemplar().select("fkAcervo_Codigo_Acervo = " + Array[0]);
+				
+				try {
+					while(rs.next()) {
+						try {
+							exemplar.setCodigo(rs.getString(1));
+							exemplar.setQtd(rs.getInt(2)-1);
+							exemplar.updateEmprestimo();
+					} catch (SQLException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+						}
+					}
+				} catch (SQLException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				
+
 				int Quantidade = 0;
 				try {
 					while(rs.next()){

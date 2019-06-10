@@ -93,6 +93,16 @@ public class DBQuery {
 		return(this.executeUpdate(sql));				
 	}
 	
+	public int updateEmprestimo(String KeyFieldValue, int values) {
+		String sql = " UPDATE "+ this.getTableName() + " SET ";
+		String fields = "Quantidade = " + values;
+		int keyFieldIndex = this.getKeyFieldIndex();
+		
+		sql += fields + "\n WHERE "+ "Codigo_Exemplar" +" = '"+ KeyFieldValue +"'";
+		System.out.println(sql);
+		return(this.executeUpdate(sql));				
+	}
+	
 	public int delete(String  keyValue) {
 		String sql = " DELETE FROM " + this.tableName +
 					 " WHERE "+ keyField +" = '"+keyValue+"'";

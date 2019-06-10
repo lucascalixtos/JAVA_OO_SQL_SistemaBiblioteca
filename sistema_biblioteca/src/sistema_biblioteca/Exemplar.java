@@ -9,6 +9,7 @@ public class Exemplar {
 	private String Quantidade;
 	private String NF;
 	private String CodigoAcervo;
+	int Qtd;
 		
 	private String tableName = "EXEMPLAR";
 	private String fields	 = "Codigo_Exemplar, Quantidade, NF, fkAcervo_Codigo_Acervo";
@@ -43,6 +44,9 @@ public class Exemplar {
 		);
 	}
 	
+	
+	
+	
 	public void save() {
 			this.dbQuery.insert(this.toArray());
 	}
@@ -58,6 +62,10 @@ public class Exemplar {
 	
 	public void update(){
 		this.dbQuery.update(this.toArray());
+	}
+	
+	public void updateEmprestimo(){
+		this.dbQuery.updateEmprestimo(this.getCodigo(), this.Qtd);
 	}
 	
 	public void delete() {
@@ -91,6 +99,14 @@ public class Exemplar {
 	}
 	public void setCodigoAcervo(String CodigoAcervo) {
 		this.CodigoAcervo = CodigoAcervo;
+	}
+
+	public void setQtd(int quantidade) {
+		this.Qtd = quantidade;	
+	}
+	
+	public int getQtd() {
+		return Qtd;
 	}
 	
 }
