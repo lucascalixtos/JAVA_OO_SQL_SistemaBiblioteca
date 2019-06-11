@@ -12,7 +12,7 @@ public class Emprestimo {
 	private String AssociadoProntuario;
 		
 	private String tableName = "EMPRESTIMO";
-	private String fields	 = "id, data_emp, data_dev, fkExemplar_Id_Exemplar, fkAssociado_Prontuario";
+	private String fields	 = "id, data_emp, data_dev, fkExemplar_Codigo_Exemplar, fkAssociado_Prontuario";
 	private String keyField  = "id";
 	
 	private DBQuery dbQuery = null;
