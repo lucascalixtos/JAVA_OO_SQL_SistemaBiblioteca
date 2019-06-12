@@ -102,6 +102,12 @@ private JMenuBar menuCreate() {
 		}
 	});
 	
+	menuNovaReserva.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			new ReservaBusca();
+		}
+	});
+	
 	menuDevolucao.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			JOptionPane.showMessageDialog(null, "Funcionou");

@@ -21,14 +21,16 @@ public class ReservaAcervo extends JFrame {
 	private JLabel lblProntuario = new JLabel ("Prontuário:");
 	private JLabel lblTitulo = new JLabel("Título:");
 	private JLabel lblAutor = new JLabel("Autor:");
-	private JLabel lblId = new JLabel("Id:");
+	private JLabel lblCodigoReserva = new JLabel("CodigoReserva:");
 	private JLabel lblPatrimonio = new JLabel("Patrimônio:");
+	private JLabel lblDataRealizacao = new JLabel("Data de Empréstimo:");
 	
 	JTextField txtProntuario;
 	JTextField txtTitulo;
 	JTextField txtAutor;
 	JTextField txtPatrimonio;
-	JTextField txtId;
+	JTextField txtCodigoReserva;
+	JTextField txtDataRealizacao;
 	
 	
 	protected JButton btnConfirmar = new JButton ("Confirmar");
@@ -37,7 +39,7 @@ public class ReservaAcervo extends JFrame {
 	public ReservaAcervo(String Tipo, String[] Array) throws SQLException{
 		
 		
-		this.setTitle("Empréstimo de " + Tipo);
+		this.setTitle("Reserva de " + Tipo);
 		this.setBounds(300, 100, 300, 500);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(null);
@@ -55,58 +57,31 @@ public class ReservaAcervo extends JFrame {
 		this.txtPatrimonio = new JTextField(Array[6]);
 		this.txtPatrimonio.setBounds(100,110,150,30);
 		
-		this.lblId.setBounds(5,145,100,30);
-		this.txtId = new JTextField();
-		this.txtId.setBounds(100,145,150,30);
+		this.lblCodigoReserva.setBounds(5,145,100,30);
+		this.txtCodigoReserva = new JTextField();
+		this.txtCodigoReserva.setBounds(100,145,150,30);
 		
 		this.lblProntuario.setBounds(5,180,100,30);
 		this.txtProntuario = new JTextField();
 		this.txtProntuario.setBounds(100,180,150,30);
+		
+		this.lblDataRealizacao.setBounds(5,215,100,30);
+		this.txtDataRealizacao = new JTextField();
+		this.txtDataRealizacao.setBounds(100,215,150,30);
 				
 		this.btnConfirmar.setBounds(35,400,100,30);
 		this.btnConfirmar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				Exemplar exemplar = new Exemplar();
-				Associado verificacao = new Associado();
-				Emprestimo emprestimo = new Emprestimo();
 				Data data = new Data();
-				ResultSet rs = new Exemplar().select("fkAcervo_Codigo_Acervo = " + Array[0]);
-	
+				Reserva reserva = new Reserva();
 				
-				try {
-					while(rs.next()) {
-							try {		
-								
-								rs = new Associado().select("Prontuario = "+txtProntuario.getText());
-								
-								while(rs.next()){
-									
-								}
-								
-								
-								
-						} catch (SQLException e2) { 
-							// TODO Auto-generated catch block
-							e2.printStackTrace();
-							}
-					}
-				} catch (SQLException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
-				
-
-				int Quantidade = 0;
-				try {
-					while(rs.next()){
-						System.out.println("Quantidade: " + rs.getInt(2));
-						Quantidade = rs.getInt(2) - 1;
-	
-					}
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				reserva.setCodigoAcervo(Array[0]);
+				reserva.setNumeroReserva(txtCodigoReserva.getText());
+				reserva.setProntuario(txtProntuario.getText());
+				reserva.setDataReserva(data.getData());
+				reserva.setDataRealizacao(txtDataRealizacao.getText());
+				reserva.save();
+			
 				dispose();
 			}
 		});
@@ -127,8 +102,10 @@ public class ReservaAcervo extends JFrame {
 		this.add(txtProntuario);
 		this.add(txtPatrimonio);
 		this.add(lblPatrimonio);
-		this.add(txtId);
-		this.add(lblId);
+		this.add(txtCodigoReserva);
+		this.add(lblCodigoReserva);
+		this.add(txtDataRealizacao);
+		this.add(lblDataRealizacao);
 		this.add(btnConfirmar);
 		this.add(btnCancelar);
 	}
