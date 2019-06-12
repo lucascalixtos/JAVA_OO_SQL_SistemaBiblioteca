@@ -13,6 +13,7 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class EmprestimoAcervo extends JFrame {
@@ -74,50 +75,57 @@ public class EmprestimoAcervo extends JFrame {
 				
 				try {
 					while(rs.next()) {
-						try {
-							String CodigoExemplar = rs.getString(1);
-							exemplar.setCodigo(rs.getString(1));
-							exemplar.setQtd(rs.getInt(2)-1);
-							exemplar.updateEmprestimo();
-							
-							
-							rs = new Associado().select("Prontuario = "+txtProntuario.getText());
-							
-							while(rs.next()){
-								if(rs.getString(5).equals("Aluno")){
-									emprestimo.setAssociadoProntuario(txtProntuario.getText());
-									emprestimo.setId(txtId.getText());
-									emprestimo.setCodigoExemplar(CodigoExemplar);
-									emprestimo.setDataEmprestimo(data.getData());
-									emprestimo.setDataDevolucao(data.Prazo(7));
-									emprestimo.setEmprestimoTitulo(Array[1]);
-									emprestimo.save();
+						if(rs.getInt(2) > 1){
+							try {
+								String CodigoExemplar = rs.getString(1);
+								exemplar.setCodigo(rs.getString(1));
+								exemplar.setQtd(rs.getInt(2)-1);
+								exemplar.updateEmprestimo();
+								
+								
+								rs = new Associado().select("Prontuario = "+txtProntuario.getText());
+								
+								while(rs.next()){
+									if(rs.getString(5).equals("Aluno")){
+										emprestimo.setAssociadoProntuario(txtProntuario.getText());
+										emprestimo.setId(txtId.getText());
+										emprestimo.setCodigoExemplar(CodigoExemplar);
+										emprestimo.setDataEmprestimo(data.getData());
+										emprestimo.setDataDevolucao(data.Prazo(7));
+										emprestimo.setEmprestimoTitulo(Array[1]);
+										emprestimo.save();
+									}
+									else if(rs.getString(5).equals("Professor")){
+										emprestimo.setAssociadoProntuario(txtProntuario.getText());
+										emprestimo.setId(txtId.getText());
+										emprestimo.setCodigoExemplar(CodigoExemplar);
+										emprestimo.setDataEmprestimo(data.getData());
+										emprestimo.setDataDevolucao(data.Prazo(10));
+										emprestimo.setEmprestimoTitulo(Array[1]);
+										emprestimo.save();
+									}
+									else if(rs.getString(5).equals("Servidor")){
+										emprestimo.setAssociadoProntuario(txtProntuario.getText());
+										emprestimo.setId(txtId.getText());
+										emprestimo.setCodigoExemplar(CodigoExemplar);
+										emprestimo.setDataEmprestimo(data.getData());
+										emprestimo.setDataDevolucao(data.Prazo(14));
+										emprestimo.setEmprestimoTitulo(Array[1]);
+										emprestimo.save();
+									
+									}
+									
 								}
-								else if(rs.getString(5).equals("Professor")){
-									emprestimo.setAssociadoProntuario(txtProntuario.getText());
-									emprestimo.setId(txtId.getText());
-									emprestimo.setCodigoExemplar(CodigoExemplar);
-									emprestimo.setDataEmprestimo(data.getData());
-									emprestimo.setDataDevolucao(data.Prazo(10));
-									emprestimo.setEmprestimoTitulo(Array[1]);
-									emprestimo.save();
-								}
-								else if(rs.getString(5).equals("Servidor")){
-									emprestimo.setAssociadoProntuario(txtProntuario.getText());
-									emprestimo.setId(txtId.getText());
-									emprestimo.setCodigoExemplar(CodigoExemplar);
-									emprestimo.setDataEmprestimo(data.getData());
-									emprestimo.setDataDevolucao(data.Prazo(14));
-									emprestimo.setEmprestimoTitulo(Array[1]);
-									emprestimo.save();
-								}
+								
+								
+								
+						} catch (SQLException e2) { 
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
 							}
-							
-							
-							
-					} catch (SQLException e2) { 
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
+						} else{
+							JOptionPane.showMessageDialog(null, "Não há exemplares disponíveis para"
+									+ " empréstimo no momento!");
 						}
 					}
 				} catch (SQLException e2) {
