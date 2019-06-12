@@ -10,9 +10,10 @@ public class Emprestimo {
 	private String DataDevolucao;
 	private String CodigoExemplar;
 	private String AssociadoProntuario;
+	private String EmprestimoTitulo;
 		
 	private String tableName = "EMPRESTIMO";
-	private String fields	 = "id, data_emp, data_dev, fkExemplar_Codigo_Exemplar, fkAssociado_Prontuario";
+	private String fields	 = "id, titulo, data_emp, data_dev, fkExemplar_Codigo_Exemplar, fkAssociado_Prontuario";
 	private String keyField  = "id";
 	
 	private DBQuery dbQuery = null;
@@ -21,13 +22,14 @@ public class Emprestimo {
 		this.dbQuery = new DBQuery(this.tableName, this.fields, this.keyField);
 	}
 	
-	public Emprestimo(String Id, String DataEmprestimo, String DataDevolucao, String CodigoExemplar, String Tipo) {
+	public Emprestimo(String Id, String DataEmprestimo, String DataDevolucao, String CodigoExemplar, String AssociadoProntuario, String EmprestimoTitulo) {
 		this.dbQuery = new DBQuery(this.tableName, this.fields, this.keyField);
 		this.setId(Id);
 		this.setDataEmprestimo(DataEmprestimo);
 		this.setDataDevolucao(DataDevolucao);
 		this.setCodigoExemplar(CodigoExemplar);
 		this.setAssociadoProntuario(AssociadoProntuario);
+		this.setEmprestimoTitulo(EmprestimoTitulo);
 	}
 	
 	public ResultSet select(String where) {
@@ -38,10 +40,12 @@ public class Emprestimo {
 		return(
 			new String[]{
 					this.getId(),
+					this.getEmprestimoTitulo(),
 					this.getDataEmprestimo(),
 					this.getDataDevolucao(),
 					this.getCodigoExemplar(),
 					this.getAssociadoProntuario()
+					
 			}
 		);
 	}
@@ -100,6 +104,12 @@ public class Emprestimo {
 	}
 	public void setAssociadoProntuario(String AssociadoProntuario) {
 		this.AssociadoProntuario = AssociadoProntuario;
+	}
+	public String getEmprestimoTitulo() {
+		return EmprestimoTitulo;
+	}
+	public void setEmprestimoTitulo(String EmprestimoTitulo) {
+		this.EmprestimoTitulo = EmprestimoTitulo;
 	}
 	
 }

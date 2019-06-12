@@ -70,6 +70,7 @@ public class EmprestimoAcervo extends JFrame {
 				Emprestimo emprestimo = new Emprestimo();
 				Data data = new Data();
 				ResultSet rs = new Exemplar().select("fkAcervo_Codigo_Acervo = " + Array[0]);
+	
 				
 				try {
 					while(rs.next()) {
@@ -89,6 +90,7 @@ public class EmprestimoAcervo extends JFrame {
 									emprestimo.setCodigoExemplar(CodigoExemplar);
 									emprestimo.setDataEmprestimo(data.getData());
 									emprestimo.setDataDevolucao(data.Prazo(7));
+									emprestimo.setEmprestimoTitulo(Array[1]);
 									emprestimo.save();
 								}
 								else if(rs.getString(5).equals("Professor")){
@@ -97,6 +99,7 @@ public class EmprestimoAcervo extends JFrame {
 									emprestimo.setCodigoExemplar(CodigoExemplar);
 									emprestimo.setDataEmprestimo(data.getData());
 									emprestimo.setDataDevolucao(data.Prazo(10));
+									emprestimo.setEmprestimoTitulo(Array[1]);
 									emprestimo.save();
 								}
 								else if(rs.getString(5).equals("Servidor")){
@@ -105,6 +108,7 @@ public class EmprestimoAcervo extends JFrame {
 									emprestimo.setCodigoExemplar(CodigoExemplar);
 									emprestimo.setDataEmprestimo(data.getData());
 									emprestimo.setDataDevolucao(data.Prazo(14));
+									emprestimo.setEmprestimoTitulo(Array[1]);
 									emprestimo.save();
 								}
 							}

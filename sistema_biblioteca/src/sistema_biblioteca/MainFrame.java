@@ -110,7 +110,8 @@ private JMenuBar menuCreate() {
 	
 	menuListEmprestimo.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			JOptionPane.showMessageDialog(null, "Funcionou");
+			new JTableEmprestimo();
+			//JOptionPane.showMessageDialog(null, "Funcionou");
 		}
 	});
 
