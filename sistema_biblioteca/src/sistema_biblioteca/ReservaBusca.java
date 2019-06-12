@@ -11,7 +11,7 @@ import javax.swing.*;
 //import javax.swing.JLabel;
 //import javax.swing.JTextField;
 
-public class EmprestimoBusca extends JFrame {
+public class ReservaBusca extends JFrame {
 	
 	private JLabel lblTitulo = new JLabel("Título:");
 	
@@ -20,8 +20,8 @@ public class EmprestimoBusca extends JFrame {
 	private JButton btnPesquisar1 = new JButton("Pesquisar");
 
 	
-	public EmprestimoBusca() {
-		this.setTitle("Novo Empréstimo");
+	public ReservaBusca() {
+		this.setTitle("Nova Reserva");
 		this.setBounds(300, 100, 500, 100);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(null);
@@ -72,7 +72,7 @@ public class EmprestimoBusca extends JFrame {
 					}
 
 					try {
-						new EmprestimoAcervo(Array[4], Array);
+						new ReservaAcervo(Array[4], Array);
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
