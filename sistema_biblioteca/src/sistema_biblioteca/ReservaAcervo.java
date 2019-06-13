@@ -21,7 +21,7 @@ public class ReservaAcervo extends JFrame {
 	private JLabel lblProntuario = new JLabel ("Prontuário:");
 	private JLabel lblTitulo = new JLabel("Título:");
 	private JLabel lblAutor = new JLabel("Autor:");
-	private JLabel lblCodigoReserva = new JLabel("CodigoReserva:");
+	private JLabel lblCodigoReserva = new JLabel("Código de Reserva:");
 	private JLabel lblPatrimonio = new JLabel("Patrimônio:");
 	private JLabel lblDataRealizacao = new JLabel("Data de Empréstimo:");
 	

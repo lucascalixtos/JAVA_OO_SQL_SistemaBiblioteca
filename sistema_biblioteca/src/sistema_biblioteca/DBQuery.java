@@ -133,11 +133,19 @@ public class DBQuery {
 	
 	public int executeUpdate(String sql) {
 		try {
+			this.dbConnection.conn.setAutoCommit(false);
 			Statement stmt = this.dbConnection.getStatement();
+
 			int linesUpdated = stmt.executeUpdate(sql);
+			this.dbConnection.conn.commit();
 			return(linesUpdated);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			try {
+				this.dbConnection.conn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		return(0);
 	}

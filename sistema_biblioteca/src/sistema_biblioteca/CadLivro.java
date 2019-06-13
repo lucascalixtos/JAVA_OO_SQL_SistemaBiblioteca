@@ -39,11 +39,12 @@ public class CadLivro extends CadAcervo{
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Acervo cadastro = new Acervo();
+				Data data = new Data();
 				cadastro.setCodigo_Acervo(txtCodigo.getText());
 				cadastro.setTitulo(txtTitulo.getText());
 				cadastro.setAutor(txtAutor.getText());
 				cadastro.setPublicacao(txtPublicacao.getText());
-				cadastro.setData_entrada(txtDataEntrada.getText());
+				cadastro.setData_entrada(data.getData());
 				cadastro.setTombo(txtTombo.getText());
 				cadastro.setPatrimonio(txtPatrimonio.getText());
 				cadastro.setTipo(Tipo);

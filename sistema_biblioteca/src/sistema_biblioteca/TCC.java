@@ -3,25 +3,23 @@ package sistema_biblioteca;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MidiaDigital {
+public class TCC {
 
-		private String Tipo;
 		private String Fk_Acervo_Codigo_Acervo;
 		
-	private String tableName = "MIDIAS_DIGITAIS";
-	private String fields	 = "Tipo, Fk_Acervo_Codigo_Acervo";
+	private String tableName = "TCC";
+	private String fields	 = "Fk_Acervo_Codigo_Acervo";
 	private String keyField  = "Fk_Acervo_Codigo_Acervo";
 	
 	private DBQuery dbQuery = null;
 	
-	public MidiaDigital() {
+	public TCC() {
 		this.dbQuery = new DBQuery(this.tableName, this.fields, this.keyField);
 	}
 	
-	public MidiaDigital(String Fk_Acervo_Codigo_Acervo, String Tipo) {
+	public TCC(String Fk_Acervo_Codigo_Acervo, String Edicao) {
 		this.dbQuery = new DBQuery(this.tableName, this.fields, this.keyField);
 		this.setFk_Acervo_Codigo_Acervo(Fk_Acervo_Codigo_Acervo);
-		this.setTipo(Tipo);
 	}
 	
 	public ResultSet select(String where) {
@@ -31,7 +29,6 @@ public class MidiaDigital {
 	private String[] toArray() {
 		return(
 			new String[]{
-					this.getTipo(),
 					this.getFk_Acervo_Codigo_Acervo()
 			}
 		);
@@ -41,14 +38,6 @@ public class MidiaDigital {
 			this.dbQuery.insert(this.toArray());
 	}
 	
-	/*public boolean checkEditora(String user, String Fk_Acervo_Codigo_Acervo) {
-		ResultSet rs = this.dbQuery.select(" Editora='"+user+"' AND Fk_Acervo_Codigo_Acervo='"+Fk_Acervo_Codigo_Acervo+"' AND Tipo='S'");
-		try {
-			return(rs.next());
-		} catch (SQLException e) {
-			return(false);
-		}
-	}*/
 	
 	public void update(){
 		this.dbQuery.update(this.toArray());
@@ -67,11 +56,6 @@ public class MidiaDigital {
 	public void setFk_Acervo_Codigo_Acervo(String Fk_Acervo_Codigo_Acervo) {
 		this.Fk_Acervo_Codigo_Acervo = Fk_Acervo_Codigo_Acervo;
 	}
-	public String getTipo() {
-		return Tipo;
-	}
-	public void setTipo(String Tipo) {
-		this.Tipo = Tipo;
-	}
+	
 	
 }

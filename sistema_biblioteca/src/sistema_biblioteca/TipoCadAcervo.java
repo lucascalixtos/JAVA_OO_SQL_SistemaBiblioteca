@@ -55,7 +55,7 @@ public class TipoCadAcervo extends JFrame{
 		this.btnTCC.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				dispose();
-				new CadAcervo("TCC");
+				new CadTCC("TCC");
 			}
 		});
 		

@@ -61,6 +61,61 @@ public class JTableAcervo extends JFrame{
 		
 		this.jPanelPesquisa.add(jLabelPesquisa);
 		this.jPanelPesquisa.add(jTextPesquisa);
+		
+		this.btnInserir.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				new TipoCadAcervo();
+				dispose();
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		this.jPanelPesquisa.add(jButtonPesquisa);
 		
 		this.setLayout(null);

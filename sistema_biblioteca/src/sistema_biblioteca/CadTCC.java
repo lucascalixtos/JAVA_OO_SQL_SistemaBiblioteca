@@ -6,15 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class CadAcervo extends JFrame {
+public class CadTCC extends JFrame {
 	
 	private JLabel lblCodigo = new JLabel("Código:");
 	private JLabel lblTitulo = new JLabel("Título:");
 	private JLabel lblAutor = new JLabel("Autor:");
 	private JLabel lblPublicacao = new JLabel("Publicação:");
-	private JLabel lblDataEntrada = new JLabel("Data de entrada:");
 	private JLabel lblTombo = new JLabel("Tombo:");
 	private JLabel lblPatrimonio = new JLabel("Patrimônio:");
 	
@@ -22,14 +22,13 @@ public class CadAcervo extends JFrame {
 	JTextField txtTitulo = new JTextField();
 	JTextField txtAutor = new JTextField();
 	JTextField txtPublicacao = new JTextField();
-    JTextField txtDataEntrada = new JTextField();
     JTextField txtTombo = new JTextField();
     JTextField txtPatrimonio = new JTextField();
 	
 	protected JButton btnSalvar = new JButton ("Salvar");
 	private JButton btnCancelar = new JButton ("Cancelar");
 	
-	public CadAcervo(String Tipo){
+	public CadTCC(String Tipo){
 		this.setTitle("Cadastro de " + Tipo);
 		this.setBounds(300, 100, 300, 500);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -50,7 +49,27 @@ public class CadAcervo extends JFrame {
 		this.txtPatrimonio.setBounds(100,180,150,30);
 		
 		this.btnSalvar.setBounds(35,400,100,30);
-		
+		this.btnSalvar.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				Acervo cadastro = new Acervo();
+				TCC tcc = new TCC();
+				Data data = new Data();
+				
+				cadastro.setCodigo_Acervo(txtCodigo.getText());
+				cadastro.setTitulo(txtTitulo.getText());
+				cadastro.setAutor(txtAutor.getText());
+				cadastro.setPublicacao(txtPublicacao.getText());
+				cadastro.setData_entrada(data.getData());
+				cadastro.setTombo(txtTombo.getText());
+				cadastro.setPatrimonio(txtPatrimonio.getText());
+				cadastro.setTipo(Tipo);
+				tcc.setFk_Acervo_Codigo_Acervo(txtCodigo.getText());
+				cadastro.save();
+				tcc.save();
+				JOptionPane.showMessageDialog(null, "Cadastro realizado!");
+				dispose();
+			}
+		});
 		
 		
 		this.btnCancelar.setBounds(145,400,100,30);

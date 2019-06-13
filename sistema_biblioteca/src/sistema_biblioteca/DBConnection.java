@@ -1,5 +1,6 @@
 package sistema_biblioteca;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ public class DBConnection {
 	String url = "jdbc:jtds:sqlserver://bdalunos.ifspguarulhos.edu.br:1433;databaseName=ALUNO035"+
 				 ";user=" + usuario + ";password=" + senha + ";";
 	private Statement  statement= null;
+	Connection conn = null;
 	
 	public DBConnection() {
 		
@@ -20,8 +22,9 @@ public class DBConnection {
 		// retirar para colocar em produção
 		try {
 			Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-			this.statement = ( DriverManager.getConnection(url).createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-				    ResultSet.CONCUR_READ_ONLY)); 
+			conn = DriverManager.getConnection(url);
+			this.statement = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+				    ResultSet.CONCUR_READ_ONLY); 
 			if (statement != null)
 				System.out.println("Banco de dados Conectado!");
 			else
@@ -33,6 +36,7 @@ public class DBConnection {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	public Statement getStatement() {
 		return( this.statement );
