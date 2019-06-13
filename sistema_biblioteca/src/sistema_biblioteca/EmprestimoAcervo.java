@@ -100,7 +100,7 @@ public class EmprestimoAcervo extends JFrame {
 										emprestimo.setId(txtId.getText());
 										emprestimo.setCodigoExemplar(CodigoExemplar);
 										emprestimo.setDataEmprestimo(data.getData());
-										emprestimo.setDataDevolucao(data.Prazo(10));
+										emprestimo.setDataDevolucao(data.Prazo(28));
 										emprestimo.setEmprestimoTitulo(Array[1]);
 										emprestimo.save();
 									}

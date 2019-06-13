@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class EditAcervo extends JFrame {
@@ -74,6 +75,7 @@ public class EditAcervo extends JFrame {
 				cadastro.setPatrimonio(txtPatrimonio.getText());
 				cadastro.setTipo((String) JTableAcervo.jTable.getValueAt(linha, 4));
 				cadastro.update();
+				JOptionPane.showMessageDialog(null, "Edição realizada!");
 				dispose();
 				JTableAcervo.reloadJTable(JTableAcervo.jPanelTabela);
 			}

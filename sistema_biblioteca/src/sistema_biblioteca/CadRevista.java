@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class CadRevista extends CadAcervo {
@@ -41,6 +42,7 @@ public class CadRevista extends CadAcervo {
 				
 				cadastro.save();
 				revista.save();
+				JOptionPane.showMessageDialog(null, "Cadastro realizado!");
 				dispose();
 			}
 		});

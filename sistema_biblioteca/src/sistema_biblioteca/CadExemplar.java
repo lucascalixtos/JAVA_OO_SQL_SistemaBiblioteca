@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class CadExemplar extends JFrame {
@@ -45,6 +46,7 @@ public class CadExemplar extends JFrame {
 				cadastro.setQuantidade(txtQuantidade.getText());
 				cadastro.setNF(txtNF.getText());
 				cadastro.save();
+				JOptionPane.showMessageDialog(null, "Cadastro realizado!");
 				dispose();
 			}
 		});

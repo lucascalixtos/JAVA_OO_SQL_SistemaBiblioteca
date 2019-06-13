@@ -65,7 +65,7 @@ public class Reserva {
 	}
 	
 	public void delete() {
-		this.dbQuery.delete(this.getCodigoAcervo());
+		this.dbQuery.delete(this.getNumeroReserva());
 		//this.setTipo("N");
 		//return(this.dbQuery.update(this.toArray()));
 	}

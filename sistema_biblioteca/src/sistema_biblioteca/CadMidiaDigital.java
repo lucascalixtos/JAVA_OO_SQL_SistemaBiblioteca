@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class CadMidiaDigital extends CadAcervo {
@@ -40,6 +41,7 @@ public class CadMidiaDigital extends CadAcervo {
 				
 				cadastro.save();
 				midia.save();
+				JOptionPane.showMessageDialog(null, "Cadastro realizado!");
 				dispose();
 			}
 		});

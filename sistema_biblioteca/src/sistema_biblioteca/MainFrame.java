@@ -50,8 +50,8 @@ private JMenuBar menuCreate() {
 	
 	JMenuItem menuNovoEmprestimo = new JMenuItem("Novo Empréstimo");
 	JMenuItem menuNovaReserva = new JMenuItem("Nova Reserva");
-	JMenuItem menuDevolucao = new JMenuItem("Devolução");
-	JMenuItem menuListEmprestimo = new JMenuItem("Listar");
+	JMenuItem menuListEmprestimo = new JMenuItem("Listar Empréstimos");
+	JMenuItem menuListReserva = new JMenuItem("Listar Reservas");
 
 	JMenuItem menuBuscar = new JMenuItem("Buscar");
 
@@ -64,8 +64,8 @@ private JMenuBar menuCreate() {
 	
 	menuEmprestimos.add(menuNovoEmprestimo);
 	menuEmprestimos.add(menuNovaReserva);
-	menuEmprestimos.add(menuDevolucao);
 	menuEmprestimos.add(menuListEmprestimo);
+	menuEmprestimos.add(menuListReserva);
 
 	menuBar.add(menuAssociados);
 	menuBar.add(menuAcervo);
@@ -108,15 +108,17 @@ private JMenuBar menuCreate() {
 		}
 	});
 	
-	menuDevolucao.addActionListener (new ActionListener(){
-		public void actionPerformed(ActionEvent e){
-			JOptionPane.showMessageDialog(null, "Funcionou");
-		}
-	});
 	
 	menuListEmprestimo.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			new JTableEmprestimo();
+			//JOptionPane.showMessageDialog(null, "Funcionou");
+		}
+	});
+	
+	menuListReserva.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			new JTableReserva();
 			//JOptionPane.showMessageDialog(null, "Funcionou");
 		}
 	});

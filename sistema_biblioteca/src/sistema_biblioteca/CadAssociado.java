@@ -79,6 +79,7 @@ public class CadAssociado extends JFrame {
 				cadastro.setTipo(comboTipo);
 				cadastro.save();
 				dispose();
+				JOptionPane.showMessageDialog(null, "Cadastro realizado!");
 				JTableAssociado.reloadJTable(JTableAssociado.jPanelTabela);
 
 			}

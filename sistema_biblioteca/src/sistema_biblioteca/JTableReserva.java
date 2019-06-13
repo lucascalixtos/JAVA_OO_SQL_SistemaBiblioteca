@@ -21,7 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class JTableEmprestimo extends JFrame{
+public class JTableReserva extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	static JTable jTable = new JTable();
@@ -35,11 +35,11 @@ public class JTableEmprestimo extends JFrame{
 	private JButton btnInserir = new JButton("Inserir");
 	
 	
-	public JTableEmprestimo() {
-		this.setTitle("Empréstimos");
+	public JTableReserva() {
+		this.setTitle("Acervo Reservado");
 		this.setBounds(50, 50, 1000, 650);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+				
 		
 		this.jPanelPesquisa = new JPanel();
 		this.jPanelPesquisa.setBounds(0, 0, 1000, 60);
@@ -84,7 +84,7 @@ public class JTableEmprestimo extends JFrame{
 					
 					
 					
-					jTable = montarJtable( "Titulo like '" + where + "'");	
+					jTable = montarJtable( "Titulo like '"+where+"'");	
 				}
 				
 				scrollpane = new JScrollPane(jTable);
@@ -104,12 +104,9 @@ public class JTableEmprestimo extends JFrame{
 				int linha = jTable.getSelectedRow();
 				
 				//JOptionPane.showMessageDialog(null, jTable.getValueAt(linha, 0));
-				String Id = (String) jTable.getValueAt(linha, 0);
-				String CodigoExemplar = (String) jTable.getValueAt(linha, 4);
-				new DevolucaoAcervo(Id, CodigoExemplar, linha);
+				String NumeroReserva = (String) jTable.getValueAt(linha, 2);
 				
-				
-				
+				new CancelaReserva(NumeroReserva, linha);
 			}
 		});  
 		
@@ -128,7 +125,7 @@ public class JTableEmprestimo extends JFrame{
 		
 		
 		JTable tmpTable = null;
-		ResultSet rs = new Emprestimo().select(where);
+		ResultSet rs = new Reserva().select(where);
 		try {
 			
 			System.out.print(rs.next());
@@ -136,7 +133,7 @@ public class JTableEmprestimo extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RsEmprestimoExtras rsExtras = new RsEmprestimoExtras(rs);
+		RsReservaExtras rsExtras = new RsReservaExtras(rs);
 		tmpTable = rsExtras.getjTable();
 		return(tmpTable);
 	}
@@ -144,7 +141,7 @@ public class JTableEmprestimo extends JFrame{
 	
 	
 	public static void main(String[] args) {
-		new JTableEmprestimo();
+		new JTableReserva();
 	}
 	
 	public static void reloadJTable(JPanel jPanelTabela){
@@ -162,11 +159,8 @@ public class JTableEmprestimo extends JFrame{
 			public void mouseEntered(MouseEvent e) {}
 			public void mouseClicked(MouseEvent e) {
 				
-				int linha = jTable.getSelectedRow();
-				
 				//JOptionPane.showMessageDialog(null, jTable.getValueAt(linha, 0));
-				String idUsuario = (String) jTable.getValueAt(linha, 0);
-				//new EditUsuarioInd(idUsuario, linha);
+				
 			}
 		});
 		

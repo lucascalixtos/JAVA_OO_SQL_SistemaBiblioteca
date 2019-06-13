@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -74,6 +75,7 @@ public class EditAssociado  extends JFrame{
 				cadastro.setTelefone(txtTelefone.getText());
 				cadastro.setTipo(comboTipo);
 				cadastro.update();
+				JOptionPane.showMessageDialog(null, "Edição realizada!");
 				dispose();
 				JTableAssociado.reloadJTable(JTableAssociado.jPanelTabela);
 
