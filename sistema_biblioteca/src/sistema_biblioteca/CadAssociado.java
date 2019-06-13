@@ -25,13 +25,11 @@ public class CadAssociado extends JFrame {
 	private JLabel lblNome = new JLabel("Nome");
 	private JLabel lblTelefone = new JLabel("Telefone");
 	private JLabel lblProntuario =  new JLabel("Prontuário");
-	private JLabel lblSenha =  new JLabel("Senha");
 	private JLabel lblEndereco =  new JLabel("Endereço"); 	
 	
 	private JTextField txtProntuario = new JTextField();
 	private JTextField txtNome = new JTextField();
 	private JTextField txtTelefone = new JTextField();
-	private JTextField txtSenha = new JTextField();
 	private JTextField txtEndereco = new JTextField();
 	
 	private JButton btnSalvar = new JButton ("Salvar");
@@ -56,11 +54,9 @@ public class CadAssociado extends JFrame {
 		this.lblTelefone.setBounds(5,110,100,30);
 		this.txtTelefone.setBounds(100,110,150,30);
 		
-		this.lblSenha.setBounds(5,145,100,30);
-		this.txtSenha.setBounds(100,145,150,30);
 		
 		this.cmbTipoAssociado.setSelectedIndex(1);
-		this.cmbTipoAssociado.setBounds(100,180,150,30);
+		this.cmbTipoAssociado.setBounds(100,150,150,30);
 		this.cmbTipoAssociado.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				comboTipo = cmbTipoAssociado.getSelectedItem().toString();
@@ -100,8 +96,6 @@ public class CadAssociado extends JFrame {
 		this.add(txtEndereco);
 		this.add(lblTelefone);
 		this.add(txtTelefone);
-		this.add(lblSenha);
-		this.add(txtSenha);
 		this.add(cmbTipoAssociado);
 		this.add(btnSalvar);
 		this.add(btnCancelar);
