@@ -1,7 +1,6 @@
 package sistema_biblioteca;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class Acervo {
 

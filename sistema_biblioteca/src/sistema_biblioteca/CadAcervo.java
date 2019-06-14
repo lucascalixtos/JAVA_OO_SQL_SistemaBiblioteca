@@ -10,10 +10,15 @@ import javax.swing.JTextField;
 
 public class CadAcervo extends JFrame {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblCodigo = new JLabel("Código:");
 	private JLabel lblTitulo = new JLabel("Título:");
 	private JLabel lblAutor = new JLabel("Autor:");
 	private JLabel lblPublicacao = new JLabel("Publicação:");
+	@SuppressWarnings("unused")
 	private JLabel lblDataEntrada = new JLabel("Data de entrada:");
 	private JLabel lblTombo = new JLabel("Tombo:");
 	private JLabel lblPatrimonio = new JLabel("Patrimônio:");
