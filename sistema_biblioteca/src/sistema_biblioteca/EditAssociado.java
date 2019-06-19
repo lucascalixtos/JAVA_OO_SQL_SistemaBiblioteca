@@ -17,7 +17,7 @@ import sistema_biblioteca.Associado;
 public class EditAssociado  extends JFrame{
 	
 	//private JDesktopPane desktop = new JDesktopPane();
-	String[] tipoAssociado = {"Aluno", "Professor", "Servidor"};
+	String[] tipoAssociado = {"Aluno", "Professor", "Servidor", "Administrador"};
 	JComboBox cmbTipoAssociado = new JComboBox(tipoAssociado);
 	String comboTipo;
 	
@@ -26,11 +26,12 @@ public class EditAssociado  extends JFrame{
 	private JLabel lblSenha =  new JLabel("Senha");
 	private JLabel lblEndereco =  new JLabel("Endereço");
 	private JLabel lblTipo = new JLabel("Tipo");
+
 	
 	private JTextField txtNome;
 	private JTextField txtTelefone;
-	private JTextField txtSenha;
 	private JTextField txtEndereco;
+	private JPasswordField txtSenha;
 	
 	private JButton btnSalvar = new JButton ("Salvar");
 	private JButton btnCancelar = new JButton ("Cancelar");
@@ -38,7 +39,7 @@ public class EditAssociado  extends JFrame{
 	
 	public EditAssociado(String Prontuario, int linha) {
 		this.setTitle("Edição de Usuário");
-		this.setBounds(300, 300, 300, 280);
+		this.setBounds(300, 300, 300, 300);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setLayout(null);
 		this.setVisible(true);
@@ -55,9 +56,13 @@ public class EditAssociado  extends JFrame{
 		this.txtTelefone = new JTextField((String) JTableAssociado.jTable.getValueAt(linha, 3));
 		this.txtTelefone.setBounds(100,110,150,30);
 		
-		this.lblTipo.setBounds(5,155,100,30);
+		this.lblSenha.setBounds(5,145,100,30);
+		this.txtSenha = new JPasswordField();
+		this.txtSenha.setBounds(100,145,150,30);
+		
+		this.lblTipo.setBounds(5,185,100,30);
 		this.cmbTipoAssociado.setSelectedIndex(1);
-		this.cmbTipoAssociado.setBounds(100,155,150,30);
+		this.cmbTipoAssociado.setBounds(100,185,150,30);
 		this.cmbTipoAssociado.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				comboTipo = cmbTipoAssociado.getSelectedItem().toString();
@@ -65,7 +70,7 @@ public class EditAssociado  extends JFrame{
 		});
 		
 		
-		this.btnSalvar.setBounds(50,210,100,30);
+		this.btnSalvar.setBounds(50,230,100,30);
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Associado cadastro = new Associado();
@@ -74,6 +79,7 @@ public class EditAssociado  extends JFrame{
 				cadastro.setEndereco(txtEndereco.getText());
 				cadastro.setTelefone(txtTelefone.getText());
 				cadastro.setTipo(comboTipo);
+				cadastro.setSenha(txtSenha.getText());
 				cadastro.update();
 				JOptionPane.showMessageDialog(null, "Edição realizada!");
 				dispose();
@@ -82,7 +88,7 @@ public class EditAssociado  extends JFrame{
 			}
 		});
 		
-		this.btnCancelar.setBounds(160,210,100,30);
+		this.btnCancelar.setBounds(160,230,100,30);
 		this.btnCancelar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				dispose();
@@ -96,6 +102,8 @@ public class EditAssociado  extends JFrame{
 		this.add(lblTelefone);
 		this.add(txtTelefone);
 		this.add(lblTipo);
+		this.add(txtSenha);
+		this.add(lblSenha);
 		this.add(cmbTipoAssociado);
 		this.add(btnSalvar);
 		this.add(btnCancelar);

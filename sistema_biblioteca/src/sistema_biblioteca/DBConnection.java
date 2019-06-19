@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 public class DBConnection {
 	
-	String usuario = "ALUNO035";
-	String senha = "ALUNO035";
-	String url = "jdbc:jtds:sqlserver://bdalunos.ifspguarulhos.edu.br:1433;databaseName=ALUNO035"+
+	String usuario = "ALUNO036";
+	String senha = "ALUNO036";
+	String url = "jdbc:jtds:sqlserver://bdalunos.ifspguarulhos.edu.br:1433;databaseName=ALUNO036"+
 				 ";user=" + usuario + ";password=" + senha + ";";
 	private Statement  statement= null;
 	Connection conn = null;

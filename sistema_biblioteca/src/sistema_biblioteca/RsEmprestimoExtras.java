@@ -27,7 +27,7 @@ public class RsEmprestimoExtras{
 	}
 	
 	public String[] columnsLabelToArray() {
-		String[] colunas = new String[]{"ID", "Titulo", "Empréstimo", "Prazo de Devolução", "Prontuário"};
+		String[] colunas = new String[]{"ID", "Titulo", "Empréstimo", "Prazo de Devolução", "Código do Exemplar" , "Prontuário"};
 		return(colunas);
 	}
 	
