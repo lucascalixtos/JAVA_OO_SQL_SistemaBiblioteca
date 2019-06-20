@@ -83,7 +83,7 @@ public class JTableAssociado extends JFrame{
 				if (jTextPesquisa.getText().isEmpty()){
 					jTable = montarJtable();
 				}else{
-					String where = jTextPesquisa.getText().replace("*", "%");
+					String where = jTextPesquisa.getText().replace("*", "%")+"%";
 					jTable = montarJtable( "Nome like '"+where+"' OR Prontuario like '"+where+"'");	
 				}
 				
@@ -129,7 +129,7 @@ public class JTableAssociado extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ResultSetExtras rsExtras = new ResultSetExtras(rs);
+		RsAssociadoExtras rsExtras = new RsAssociadoExtras(rs);
 		tmpTable = rsExtras.getjTable();
 		return(tmpTable);
 	}

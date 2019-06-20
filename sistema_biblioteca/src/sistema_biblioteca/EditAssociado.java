@@ -63,6 +63,7 @@ public class EditAssociado  extends JFrame{
 		this.lblTipo.setBounds(5,185,100,30);
 		this.cmbTipoAssociado.setSelectedIndex(1);
 		this.cmbTipoAssociado.setBounds(100,185,150,30);
+		comboTipo = (String) JTableAssociado.jTable.getValueAt(linha, 4);
 		this.cmbTipoAssociado.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				comboTipo = cmbTipoAssociado.getSelectedItem().toString();

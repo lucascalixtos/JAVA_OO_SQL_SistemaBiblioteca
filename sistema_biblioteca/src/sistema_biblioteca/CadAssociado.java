@@ -63,6 +63,7 @@ public class CadAssociado extends JFrame {
 		
 		this.cmbTipoAssociado.setSelectedIndex(1);
 		this.cmbTipoAssociado.setBounds(100,180,150,30);
+		comboTipo = tipoAssociado[1];
 		this.cmbTipoAssociado.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				comboTipo = cmbTipoAssociado.getSelectedItem().toString();
@@ -103,6 +104,8 @@ public class CadAssociado extends JFrame {
 		this.add(txtEndereco);
 		this.add(lblTelefone);
 		this.add(txtTelefone);
+		this.add(lblSenha);
+		this.add(txtSenha);
 		this.add(cmbTipoAssociado);
 		this.add(btnSalvar);
 		this.add(btnCancelar);

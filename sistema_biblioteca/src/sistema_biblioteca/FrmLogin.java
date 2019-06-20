@@ -55,8 +55,7 @@ public class FrmLogin extends JFrame {
 				}else
 				if ( usuario.checkLogin(txtUsuario.getText(), txtSenha.getText() )){
 					JOptionPane.showMessageDialog(null, "Logado!");
-					
-					new MainFrameUser();
+					new MainFrameUser(txtUsuario.getText());
 					closeFrmLogin();
 				}else{
 					JOptionPane.showMessageDialog(null, "Não Logado!");

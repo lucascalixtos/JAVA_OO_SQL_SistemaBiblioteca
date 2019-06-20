@@ -80,7 +80,7 @@ public class JTableReserva extends JFrame{
 				if (jTextPesquisa.getText().isEmpty()){
 					jTable = montarJtable();
 				}else{
-					String where = jTextPesquisa.getText().replace("*", "%");
+					String where = jTextPesquisa.getText().replace("*", "%")+"%";
 					
 					
 					

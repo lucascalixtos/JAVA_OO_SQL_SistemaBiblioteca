@@ -25,7 +25,7 @@ public class EditMidiaDigital extends EditAcervo {
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Acervo cadastro = new Acervo();
-				cadastro.setCodigo_Acervo((String) JTableAcervo.jTable.getValueAt(linha, 0));
+				cadastro.setCodigo_Acervo((String) JTableAcervoAdmin.jTable.getValueAt(linha, 0));
 				cadastro.setTitulo(txtTitulo.getText());
 				cadastro.setAutor(txtAutor.getText());
 				cadastro.setPublicacao(txtPublicacao.getText());
@@ -36,7 +36,7 @@ public class EditMidiaDigital extends EditAcervo {
 				
 				MidiaDigital midia = new MidiaDigital();
 				midia.setTipo(txtTipo.getText());
-				midia.setFk_Acervo_Codigo_Acervo((String) JTableAcervo.jTable.getValueAt(linha, 0));
+				midia.setFk_Acervo_Codigo_Acervo((String) JTableAcervoAdmin.jTable.getValueAt(linha, 0));
 				
 				cadastro.save();
 				midia.save();

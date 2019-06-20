@@ -20,7 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class JTableAcervo extends JFrame{
+public class JTableAcervoAdmin extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	static JTable jTable = new JTable();
@@ -34,7 +34,7 @@ public class JTableAcervo extends JFrame{
 	private JButton btnInserir = new JButton("Inserir");
 	
 	
-	public JTableAcervo() {
+	public JTableAcervoAdmin() {
 		this.setTitle("Acervo Cadastrado");
 		this.setBounds(50, 50, 1000, 650);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -69,53 +69,7 @@ public class JTableAcervo extends JFrame{
 			}
 		});
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		this.jPanelPesquisa.add(jButtonPesquisa);
 		
 		this.setLayout(null);
@@ -138,7 +92,7 @@ public class JTableAcervo extends JFrame{
 				if (jTextPesquisa.getText().isEmpty()){
 					jTable = montarJtable();
 				}else{
-					String where = jTextPesquisa.getText().replace("*", "%");
+					String where = jTextPesquisa.getText().replace("*", "%")+"%";
 					
 					
 					
@@ -153,7 +107,7 @@ public class JTableAcervo extends JFrame{
 			}
 		});
 		
-		this.jTable.addMouseListener(new MouseListener() {
+		JTableAcervoAdmin.jTable.addMouseListener(new MouseListener() {
 			public void mouseReleased(MouseEvent e) {}
 			public void mousePressed(MouseEvent e) {}
 			public void mouseExited(MouseEvent e) {}
@@ -192,7 +146,7 @@ public class JTableAcervo extends JFrame{
 		
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//new CadAcervo();
+				new TipoCadAcervo();
 			}
 		});
 	}
@@ -210,7 +164,7 @@ public class JTableAcervo extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ResultSetExtras rsExtras = new ResultSetExtras(rs);
+		RsAcervoExtras rsExtras = new RsAcervoExtras(rs);
 		tmpTable = rsExtras.getjTable();
 		return(tmpTable);
 	}
@@ -218,7 +172,7 @@ public class JTableAcervo extends JFrame{
 	
 	
 	public static void main(String[] args) {
-		new JTableAcervo();
+		new JTableAcervoAdmin();
 	}
 	
 	public static void reloadJTable(JPanel jPanelTabela){

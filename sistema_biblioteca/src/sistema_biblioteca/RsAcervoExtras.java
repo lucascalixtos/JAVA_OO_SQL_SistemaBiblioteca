@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 import javax.swing.JTable;
 
-public class ResultSetExtras{
+public class RsAcervoExtras{
 	
 	private ResultSet rs = null;
 	private int countRows= 0;
 	private int countCols= 0;
 	private JTable jTable= null;
 
-	public ResultSetExtras( ResultSet rs ) {
+	public RsAcervoExtras( ResultSet rs ) {
 		this.rs = rs;
 	
 			try {
@@ -27,14 +27,8 @@ public class ResultSetExtras{
 	}
 	
 	public String[] columnsLabelToArray() {
-		String[] colunas = new String[this.getCountCols()];
-		try {
-			for(int i=0; i<this.getCountCols(); i++){
-				colunas[i] = this.rs.getMetaData().getColumnName(i+1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		String[] colunas = new String[]{"Código", "Título", "Autor", "Publicação", "Tipo",
+				"Tombo", "Patrimônio", "Data de Entrada"};
 		return(colunas);
 	}
 	

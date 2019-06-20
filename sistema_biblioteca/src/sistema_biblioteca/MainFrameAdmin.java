@@ -97,7 +97,7 @@ private JMenuBar menuCreate() {
 	menuListAcervo.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			//JOptionPane.showMessageDialog(null, "Funcionou");
-			new JTableAcervo();
+			new JTableAcervoAdmin();
 		}
 	});
 	

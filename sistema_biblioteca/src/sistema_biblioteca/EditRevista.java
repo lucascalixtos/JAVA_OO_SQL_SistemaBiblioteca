@@ -25,7 +25,7 @@ public class EditRevista extends EditAcervo {
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Acervo cadastro = new Acervo();
-				cadastro.setCodigo_Acervo((String) JTableAcervo.jTable.getValueAt(linha, 0));
+				cadastro.setCodigo_Acervo((String) JTableAcervoAdmin.jTable.getValueAt(linha, 0));
 				cadastro.setTitulo(txtTitulo.getText());
 				cadastro.setAutor(txtAutor.getText());
 				cadastro.setPublicacao(txtPublicacao.getText());
@@ -35,8 +35,8 @@ public class EditRevista extends EditAcervo {
 				cadastro.setTipo(Tipo);
 				
 				MidiaDigital revista = new MidiaDigital();
-				revista.setTipo((String) JTableAcervo.jTable.getValueAt(linha, 0));
-				revista.setFk_Acervo_Codigo_Acervo((String) JTableAcervo.jTable.getValueAt(linha, 0));
+				revista.setTipo((String) JTableAcervoAdmin.jTable.getValueAt(linha, 0));
+				revista.setFk_Acervo_Codigo_Acervo((String) JTableAcervoAdmin.jTable.getValueAt(linha, 0));
 				
 				cadastro.save();
 				revista.save();

@@ -3,6 +3,9 @@ package sistema_biblioteca;
 import java.awt.GraphicsConfiguration;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -17,14 +20,15 @@ public class MainFrameUser extends JFrame {
 	
 	private JDesktopPane desktopPane = new JDesktopPane();
 	
-public MainFrameUser() {
+public MainFrameUser(String usuario) {
 
+	
 		this.setTitle("Gerenciamento de Biblioteca");
 		this.setBounds(400, 100, 500, 500);
 		this.setLayout(null);
 		//this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setJMenuBar(this.menuCreate());
+		this.setJMenuBar(this.menuCreate(usuario));
 		
 		this.add(desktopPane);
 		desktopPane.setAutoscrolls(true);
@@ -36,7 +40,7 @@ public MainFrameUser getThis(){
 	return this;
 }
 
-private JMenuBar menuCreate() {
+private JMenuBar menuCreate(String usuario) {
 	
 	JMenuBar menuBar = new JMenuBar();
 	JMenu menuMinhaConta = new JMenu("Minha Conta");
@@ -54,6 +58,8 @@ private JMenuBar menuCreate() {
 	JMenuItem menuListEmprestimo = new JMenuItem("Listar Empréstimos");
 	JMenuItem menuListReserva = new JMenuItem("Listar Reservas");
 	
+	JMenuItem menuEditar = new JMenuItem("Editar");
+	
 
 	JMenuItem menuItemSobre = new JMenuItem("Sobre");
 
@@ -64,6 +70,8 @@ private JMenuBar menuCreate() {
 	menuEmprestimos.add(menuNovaReserva);
 	menuEmprestimos.add(menuListEmprestimo);
 	menuEmprestimos.add(menuListReserva);
+	
+	menuMinhaConta.add(menuEditar);
 	
 	menuSobre.add(menuItemSobre);
 
@@ -92,7 +100,7 @@ private JMenuBar menuCreate() {
 	menuListAcervo.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			//JOptionPane.showMessageDialog(null, "Funcionou");
-			new JTableAcervo();
+			new JTableAcervoUser();
 		}
 	});
 	
@@ -114,6 +122,48 @@ private JMenuBar menuCreate() {
 	menuListReserva.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
 			new JTableReserva();
+			//JOptionPane.showMessageDialog(null, "Funcionou");
+		}
+	});
+	
+	menuEditar.addActionListener (new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			int i = 0;
+
+			String where = "Prontuario = '" + usuario + "'" ;
+			//System.out.println("\n"+where);
+			ResultSet rs = new Associado().select(where);
+			ResultSetMetaData rsmd = null;
+			try {
+				rsmd = rs.getMetaData();
+			} catch (SQLException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
+			int rsColumnCount = 0;
+			try {
+				rsColumnCount = rsmd.getColumnCount();
+			} catch (SQLException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			String[] Array = new String[rsColumnCount];
+				try {
+					while(rs.next()){
+						while(i < rsColumnCount){
+							Array[i] = rs.getString(i+1);
+							System.out.println(" " + Array[i]);
+							i++;
+						}
+					}
+					
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				new EditAssociadoUser(Array);
+
 			//JOptionPane.showMessageDialog(null, "Funcionou");
 		}
 	});

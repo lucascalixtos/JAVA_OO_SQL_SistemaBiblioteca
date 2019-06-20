@@ -39,45 +39,45 @@ public class EditAcervo extends JFrame {
 		this.setVisible(true);
 		
 		this.lblTitulo.setBounds(5,40,100,30);
-		this.txtTitulo = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 1));
+		this.txtTitulo = new JTextField((String) JTableAcervoAdmin.jTable.getValueAt(linha, 1));
 		this.txtTitulo.setBounds(100,40,350,30);
 		
 		this.lblAutor.setBounds(5,75,100,30);
-		this.txtAutor = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 2));
+		this.txtAutor = new JTextField((String) JTableAcervoAdmin.jTable.getValueAt(linha, 2));
 		this.txtAutor.setBounds(100,75,350,30);
 		
 		this.lblPublicacao.setBounds(5,110,100,30);
-		this.txtPublicacao = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 3));
+		this.txtPublicacao = new JTextField((String) JTableAcervoAdmin.jTable.getValueAt(linha, 3));
 		this.txtPublicacao.setBounds(100,110,350,30);
 		
 		this.lblDataEntrada.setBounds(5,145,100,30);
-		this.txtDataEntrada = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 7));
+		this.txtDataEntrada = new JTextField((String) JTableAcervoAdmin.jTable.getValueAt(linha, 7));
 		this.txtDataEntrada.setBounds(100,145,350,30);
 		
 		this.lblTombo.setBounds(5,180,100,30);
-		this.txtTombo = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 5));
+		this.txtTombo = new JTextField((String) JTableAcervoAdmin.jTable.getValueAt(linha, 5));
 		this.txtTombo.setBounds(100,180,350,30);
 		
 		this.lblPatrimonio.setBounds(5,215,100,30);
-		this.txtPatrimonio = new JTextField((String) JTableAcervo.jTable.getValueAt(linha, 6));
+		this.txtPatrimonio = new JTextField((String) JTableAcervoAdmin.jTable.getValueAt(linha, 6));
 		this.txtPatrimonio.setBounds(100,215,350,30);
 				
 		this.btnSalvar.setBounds(20,400,100,30);
 		this.btnSalvar.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Acervo cadastro = new Acervo();
-				cadastro.setCodigo_Acervo((String) JTableAcervo.jTable.getValueAt(linha, 0));
+				cadastro.setCodigo_Acervo((String) JTableAcervoAdmin.jTable.getValueAt(linha, 0));
 				cadastro.setTitulo(txtTitulo.getText());
 				cadastro.setAutor(txtAutor.getText());
 				cadastro.setPublicacao(txtPublicacao.getText());
 				cadastro.setData_entrada(txtDataEntrada.getText());
 				cadastro.setTombo(txtTombo.getText());
 				cadastro.setPatrimonio(txtPatrimonio.getText());
-				cadastro.setTipo((String) JTableAcervo.jTable.getValueAt(linha, 4));
+				cadastro.setTipo((String) JTableAcervoAdmin.jTable.getValueAt(linha, 4));
 				cadastro.update();
 				JOptionPane.showMessageDialog(null, "Edição realizada!");
 				dispose();
-				JTableAcervo.reloadJTable(JTableAcervo.jPanelTabela);
+				JTableAcervoAdmin.reloadJTable(JTableAcervoAdmin.jPanelTabela);
 			}
 		});
 		
