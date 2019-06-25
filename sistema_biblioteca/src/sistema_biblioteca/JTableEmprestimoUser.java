@@ -34,7 +34,7 @@ public class JTableEmprestimoUser extends JFrame{
 	private static JScrollPane scrollpane = null;
 	private JButton btnInserir = new JButton("Inserir");
 	
-	public JTableEmprestimoUser() {
+	public JTableEmprestimoUser(String prontuario) {
 		
 		this.setTitle("Empréstimos");
 		this.setBounds(50, 50, 1000, 650);
@@ -65,7 +65,8 @@ public class JTableEmprestimoUser extends JFrame{
 		this.add(jPanelPesquisa);
 		this.add(jPanelTabela);
 		
-		this.jTable = montarJtable("fkAssociado_Prontuario = '3002543'");
+		String user = "FkAssociado_Prontuario = '"+prontuario+"'";
+		this.jTable = montarJtable(user);
 		this.scrollpane = new JScrollPane(this.jTable);
 		this.jPanelTabela.add(scrollpane);
 		
@@ -84,7 +85,7 @@ public class JTableEmprestimoUser extends JFrame{
 					
 					
 					
-					jTable = montarJtable( "Titulo like '" + where + "'");	
+					jTable = montarJtable( "Titulo like '" + where + "' OR fkAssociado_Prontuario like'" +where+"'");	
 				}
 				
 				scrollpane = new JScrollPane(jTable);
@@ -118,6 +119,10 @@ public class JTableEmprestimoUser extends JFrame{
 				//new CadAcervo();
 			}
 		});
+	}
+
+	public JTableEmprestimoUser() {
+		// TODO Auto-generated constructor stub
 	}
 
 	private JTable montarJtable() {;

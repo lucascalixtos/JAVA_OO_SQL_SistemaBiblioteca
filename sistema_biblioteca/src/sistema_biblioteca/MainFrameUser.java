@@ -114,7 +114,7 @@ private JMenuBar menuCreate(String usuario) {
 	
 	menuListEmprestimo.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			new JTableEmprestimoUser();
+			new JTableEmprestimoUser(usuario);
 			//JOptionPane.showMessageDialog(null, "Funcionou");
 		}
 	});
