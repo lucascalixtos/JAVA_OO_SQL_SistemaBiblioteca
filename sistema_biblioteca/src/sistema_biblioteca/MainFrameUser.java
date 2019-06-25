@@ -121,7 +121,7 @@ private JMenuBar menuCreate(String usuario) {
 	
 	menuListReserva.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			new JTableReserva();
+			new JTableReservaUser(usuario);
 			//JOptionPane.showMessageDialog(null, "Funcionou");
 		}
 	});

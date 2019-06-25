@@ -17,7 +17,7 @@ import sistema_biblioteca.Associado;
 public class EditAssociadoUser  extends JFrame{
 	
 	//private JDesktopPane desktop = new JDesktopPane();
-	String[] tipoAssociado = {"Aluno", "Professor", "Servidor", "Administrador"};
+	String[] tipoAssociado = {"Aluno", "Professor", "Servidor"};
 	JComboBox cmbTipoAssociado = new JComboBox(tipoAssociado);
 	String comboTipo;
 	

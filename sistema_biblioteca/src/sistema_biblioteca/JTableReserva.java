@@ -128,7 +128,7 @@ public class JTableReserva extends JFrame{
 		ResultSet rs = new Reserva().select(where);
 		try {
 			
-			System.out.print(rs.next());
+			System.out.println(rs.next());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

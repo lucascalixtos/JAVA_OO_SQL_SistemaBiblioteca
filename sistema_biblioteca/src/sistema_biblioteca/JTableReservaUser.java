@@ -21,7 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class JTableEmprestimoUser extends JFrame{
+public class JTableReservaUser extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
 	static JTable jTable = new JTable();
@@ -34,12 +34,12 @@ public class JTableEmprestimoUser extends JFrame{
 	private static JScrollPane scrollpane = null;
 	private JButton btnInserir = new JButton("Inserir");
 	
-	public JTableEmprestimoUser(String prontuario) {
-		
-		this.setTitle("Empréstimos");
+	
+	public JTableReservaUser(String prontuario) {
+		this.setTitle("Acervo Reservado");
 		this.setBounds(50, 50, 1000, 650);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
+				
 		
 		this.jPanelPesquisa = new JPanel();
 		this.jPanelPesquisa.setBounds(0, 0, 1000, 60);
@@ -65,7 +65,7 @@ public class JTableEmprestimoUser extends JFrame{
 		this.add(jPanelPesquisa);
 		this.add(jPanelTabela);
 		
-		String user = "FkAssociado_Prontuario = '"+prontuario+"'";
+		String user = "Fk_Associado_Prontuario = '"+prontuario+"'";
 		this.jTable = montarJtable(user);
 		this.scrollpane = new JScrollPane(this.jTable);
 		this.jPanelTabela.add(scrollpane);
@@ -85,7 +85,7 @@ public class JTableEmprestimoUser extends JFrame{
 					
 					
 					
-					jTable = montarJtable( "Titulo like '" + where + "' OR fkAssociado_Prontuario like'" +where+"'");	
+					jTable = montarJtable( "Titulo like '" + where + "' OR fkAssociado_Prontuario like'" +where+"'");
 				}
 				
 				scrollpane = new JScrollPane(jTable);
@@ -105,12 +105,9 @@ public class JTableEmprestimoUser extends JFrame{
 				int linha = jTable.getSelectedRow();
 				
 				//JOptionPane.showMessageDialog(null, jTable.getValueAt(linha, 0));
-				String Id = (String) jTable.getValueAt(linha, 0);
-				String CodigoExemplar = (String) jTable.getValueAt(linha, 4);
-				new DevolucaoAcervo(Id, CodigoExemplar, linha);
+				String NumeroReserva = (String) jTable.getValueAt(linha, 2);
 				
-				
-				
+				new CancelaReserva(NumeroReserva, linha);
 			}
 		});  
 		
@@ -121,12 +118,11 @@ public class JTableEmprestimoUser extends JFrame{
 		});
 	}
 
-	public JTableEmprestimoUser() {
+	public JTableReservaUser() {
 		// TODO Auto-generated constructor stub
 	}
 
-	private JTable montarJtable() {;
-		
+	private static JTable montarJtable() {;
 		return(montarJtable(""));
 	}
 	
@@ -134,7 +130,7 @@ public class JTableEmprestimoUser extends JFrame{
 		
 		
 		JTable tmpTable = null;
-		ResultSet rs = new Emprestimo().select(where);
+		ResultSet rs = new Reserva().select(where);
 		try {
 			
 			System.out.print(rs.next());
@@ -142,19 +138,18 @@ public class JTableEmprestimoUser extends JFrame{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RsEmprestimoExtras rsExtras = new RsEmprestimoExtras(rs);
+		RsReservaExtras rsExtras = new RsReservaExtras(rs);
 		tmpTable = rsExtras.getjTable();
 		return(tmpTable);
 	}
 	
 	
 	
-	public static void main(String[] args) { 
-		
-		new JTableEmprestimoUser();
+	public static void main(String[] args) {
+		new JTableReservaUser();
 	}
 	
-	public void reloadJTable(JPanel jPanelTabela){
+	public static void reloadJTable(JPanel jPanelTabela){
 		jPanelTabela.remove(scrollpane);
 		jTable = montarJtable();
 		scrollpane = new JScrollPane(jTable);
@@ -169,11 +164,8 @@ public class JTableEmprestimoUser extends JFrame{
 			public void mouseEntered(MouseEvent e) {}
 			public void mouseClicked(MouseEvent e) {
 				
-				int linha = jTable.getSelectedRow();
-				
 				//JOptionPane.showMessageDialog(null, jTable.getValueAt(linha, 0));
-				String idUsuario = (String) jTable.getValueAt(linha, 0);
-				//new EditUsuarioInd(idUsuario, linha);
+				
 			}
 		});
 		
@@ -182,7 +174,5 @@ public class JTableEmprestimoUser extends JFrame{
 	private static void closeJTable(){
 		
 	}
-	
-	
 	
 }
