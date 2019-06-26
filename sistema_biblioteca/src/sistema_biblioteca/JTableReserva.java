@@ -104,7 +104,7 @@ public class JTableReserva extends JFrame{
 				int linha = jTable.getSelectedRow();
 				
 				//JOptionPane.showMessageDialog(null, jTable.getValueAt(linha, 0));
-				String NumeroReserva = (String) jTable.getValueAt(linha, 2);
+				String NumeroReserva = (String) jTable.getValueAt(linha, 3);
 				
 				new CancelaReserva(NumeroReserva, linha);
 			}

@@ -10,10 +10,12 @@ import java.util.Date;
 
 public class Data {
   public String getData() { 
-	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-uuuu");
+	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("uuuu-MM-dd");
 		String formattedDate = formatter.format(LocalDate.now());
 		return formattedDate;
   } 
+  
+
   
   public String Prazo(int dias){
 	  Date data = new Date();
@@ -23,7 +25,7 @@ public class Data {
 	  c.add(Calendar.DATE, dias);  
 	  //Retorne sua data para o objeto java.util.Date  
 	  Date devolucao = c.getTime();  
-	  DateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+	  DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	  String devolucaoFormatada = df.format(devolucao);
 	  return devolucaoFormatada;
   }

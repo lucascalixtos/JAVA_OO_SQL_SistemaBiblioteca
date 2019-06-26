@@ -66,7 +66,7 @@ public class ReservaAcervo extends JFrame {
 		this.txtProntuario.setBounds(100,180,150,30);
 		
 		this.lblDataRealizacao.setBounds(5,215,100,30);
-		this.txtDataRealizacao = new JTextField();
+		this.txtDataRealizacao = new JTextField("AAAA-mm-dd");
 		this.txtDataRealizacao.setBounds(100,215,150,30);
 				
 		this.btnConfirmar.setBounds(35,400,100,30);
@@ -80,6 +80,7 @@ public class ReservaAcervo extends JFrame {
 				reserva.setProntuario(txtProntuario.getText());
 				reserva.setDataReserva(data.getData());
 				reserva.setDataRealizacao(txtDataRealizacao.getText());
+				reserva.setTitulo(txtTitulo.getText());
 				reserva.save();
 			
 				dispose();

@@ -10,9 +10,10 @@ public class Reserva {
 	private String NumeroReserva;
 	private String DataRealizacao;
 	private String DataReserva;
+	private String Titulo;
 		
 	private String tableName = "RESERVA";
-	private String fields	 = "fk_Acervo_Codigo_Acervo, fk_Associado_Prontuario, Numero_Reserva, Data_Realizacao, Data_Reserva";
+	private String fields	 = "fk_Acervo_Codigo_Acervo, Titulo, fk_Associado_Prontuario, Numero_Reserva, Data_Realizacao, Data_Reserva";
 	private String keyField  = "Numero_Reserva";
 	
 	private DBQuery dbQuery = null;
@@ -21,8 +22,9 @@ public class Reserva {
 		this.dbQuery = new DBQuery(this.tableName, this.fields, this.keyField);
 	}
 	
-	public Reserva(String CodigoAcervo, String Prontuario, String NumeroReserva, String DataRealizacao, String DataReserva, String EmprestimoTitulo) {
+	public Reserva(String CodigoAcervo, String Prontuario, String NumeroReserva, String DataRealizacao, String DataReserva, String Titulo) {
 		this.dbQuery = new DBQuery(this.tableName, this.fields, this.keyField);
+		this.setTitulo(Titulo);
 		this.setCodigoAcervo(CodigoAcervo);
 		this.setProntuario(Prontuario);
 		this.setNumeroReserva(NumeroReserva);
@@ -38,6 +40,7 @@ public class Reserva {
 		return(
 			new String[]{
 					this.getCodigoAcervo(),
+					this.getTitulo(),
 					this.getProntuario(),
 					this.getNumeroReserva(),
 					this.getDataRealizacao(),
@@ -103,5 +106,11 @@ public class Reserva {
 		this.DataReserva = DataReserva;
 	}
 	
+	public String getTitulo() {
+		return Titulo;
+	}
+	public void setTitulo(String Titulo) {
+		this.Titulo = Titulo;
+	}
 	
 }

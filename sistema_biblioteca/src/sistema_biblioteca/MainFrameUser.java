@@ -170,10 +170,12 @@ private JMenuBar menuCreate(String usuario) {
 	
 	menuItemSobre.addActionListener (new ActionListener(){
 		public void actionPerformed(ActionEvent e){
-			JOptionPane.showMessageDialog(null, "Feito por: \n"
+			JOptionPane.showMessageDialog(null, "Desenvolvido por: \n\n"
 					+ "Lucas Calixto - GU3002543\n"
 					+ "Thiago Henrique - GU3001636\n"
-					+ "Vinicius Ferrreira - GU3002519");
+					+ "Vinicius Ferrreira - GU3002519\n\n"
+					+ "@Instituto Federal de Ciência e Tecnlogia de São Paulo\nCampus Guarulhos\n\n"
+					+ "Versão: 1.0.1");
 		}
 	});
 

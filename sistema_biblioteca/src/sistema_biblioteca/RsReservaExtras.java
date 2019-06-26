@@ -27,7 +27,7 @@ public class RsReservaExtras{
 	}
 	
 	public String[] columnsLabelToArray() {
-		String[] colunas = new String[]{"Código de Acervo", "Prontuário", "Numero da Reserva", "Data de Reserva", "Previsão de Empréstimo"};
+		String[] colunas = new String[]{"Código de Acervo", "Titulo", "Prontuário", "Numero da Reserva", "Data de Reserva", "Previsão de Empréstimo"};
 		return(colunas);
 	}
 	

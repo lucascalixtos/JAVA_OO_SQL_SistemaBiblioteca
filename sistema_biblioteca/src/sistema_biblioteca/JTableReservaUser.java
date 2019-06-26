@@ -33,6 +33,7 @@ public class JTableReservaUser extends JFrame{
 	private JButton jButtonPesquisa = null;
 	private static JScrollPane scrollpane = null;
 	private JButton btnInserir = new JButton("Inserir");
+	static String UserGlobal;
 	
 	
 	public JTableReservaUser(String prontuario) {
@@ -66,6 +67,7 @@ public class JTableReservaUser extends JFrame{
 		this.add(jPanelTabela);
 		
 		String user = "Fk_Associado_Prontuario = '"+prontuario+"'";
+		UserGlobal = user;
 		this.jTable = montarJtable(user);
 		this.scrollpane = new JScrollPane(this.jTable);
 		this.jPanelTabela.add(scrollpane);
@@ -105,9 +107,9 @@ public class JTableReservaUser extends JFrame{
 				int linha = jTable.getSelectedRow();
 				
 				//JOptionPane.showMessageDialog(null, jTable.getValueAt(linha, 0));
-				String NumeroReserva = (String) jTable.getValueAt(linha, 2);
+				String NumeroReserva = (String) jTable.getValueAt(linha, 3);
 				
-				new CancelaReserva(NumeroReserva, linha);
+				new CancelaReservaUser(NumeroReserva, linha);
 			}
 		});  
 		
@@ -151,7 +153,7 @@ public class JTableReservaUser extends JFrame{
 	
 	public static void reloadJTable(JPanel jPanelTabela){
 		jPanelTabela.remove(scrollpane);
-		jTable = montarJtable();
+		jTable = montarJtable(UserGlobal);
 		scrollpane = new JScrollPane(jTable);
 		jPanelTabela.add(scrollpane);
 		jPanelTabela.validate();
